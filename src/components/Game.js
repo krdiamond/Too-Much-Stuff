@@ -6,17 +6,17 @@ export default class Game extends Component {
     imgs: []
   }
 
-  componentDidMount() {
-    fetch('http://localhost:3000/items')
-    .then(res => res.json())
-    .then(json => this.setState({imgs: json}))
-  }
+  // componentDidMount() {
+  //   fetch('http://localhost:3000/items')
+  //   .then(res => res.json())
+  //   .then(json => this.setState({imgs: json}))
+  // }
 
   render() {
     console.log("Got to game!")
     return(
-      <div className="game">
-        <div className="trash_mountain"> <img src={TrashMountain} height="900" alt="Trash Mountain"/> </div>
+      <div className="image_container">
+        <div className="main_image"> <img src={TrashMountain} height="900" alt="Trash Mountain"/> </div>
         <div>
           {this.state.imgs ? this.state.imgs.map((img) => {
             return (

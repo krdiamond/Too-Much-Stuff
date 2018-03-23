@@ -3,6 +3,17 @@
   text-align: center;
 }
 
+.image_container {
+  display: inline-block;
+  position: relative;
+  text-align: center;
+}
+
+.main_image {
+  position: relative;
+  z-index: 1;
+}
+
 /* @font-face {
     font-family: 'bubblegum';
     src: url(bubblegum.ttf);
@@ -10,16 +21,6 @@
 
 
 /* ---------------------------- LANDING PAGE -------------------------------- */
-.landing_page_container {
-  display: inline-block;
-  position: relative;
-  text-align: center;
-}
-
-.landing_image {
-  position: relative;
-  z-index: 1;
-}
 
 .start_button{
   position: absolute;
