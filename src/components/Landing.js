@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import Game from './Game'
-import { Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import LandingImage from '../images/too_much.jpg';
 
 
