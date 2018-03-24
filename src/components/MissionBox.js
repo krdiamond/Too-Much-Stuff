@@ -2,7 +2,6 @@ import React from 'react';
 import ItemList from './ItemList'
 
 const MissionBox = (props) => {
-  console.log("MissionBox Props:", props)
   return(
     <div className="status-box">
       <div>YOUR MISSION</div>

@@ -2,7 +2,6 @@ import React from 'react';
 import ItemList from './ItemList'
 
 const FoundBox = (props) => {
-  console.log("FoundBox Props:", props)
   return(
     <div className="status-box">
       <div>FOUND ITEMS</div>
