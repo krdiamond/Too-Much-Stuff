@@ -31,7 +31,7 @@ export default class UsersContainer extends Component {
     return(
       <div className='users-container'>
         <aside className="sidebar">
-          <h1 className="App-title">CHALLENGE A USER</h1>
+          <h1 className="App-title">CHOOSE A USER</h1>
           <ul>
             { this.buildSidebar() }
           </ul>
