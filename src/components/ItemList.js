@@ -12,9 +12,7 @@ const ItemList = (props) => {
   : null
 
   return (
-    <div className="item-list">
-      {imgs}
-    </div>
+    imgs
   )
 }
 

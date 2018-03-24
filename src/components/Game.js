@@ -34,29 +34,16 @@ export default class Game extends Component {
 
   render() {
     return(
-<<<<<<< HEAD
-      <div className="image_container">
-        <div className="main_image"> <img src={TrashMountain} height="900" alt="Trash Mountain"/> </div>
-        <div className="item">
-          {this.state.imgs ? this.state.imgs.map((img) => {
-            return (
-              <img src={img.src} style={{height: '40px', width: '40px'}}/>
-            )
-          })
-          : null
-        }
-=======
-    <div>
       <div className="game">
-        <div className="trash_mountain"> <img src={TrashMountain} height="900" alt="Trash Mountain"/> </div>
-      </div>
-      <div style={{height: 200}}>
-        <ItemList list={this.state.imgsLeft} handleClick={this.handleItemClick} />
+
         <MissionBox mission={this.state.mission} />
-        <FoundBox   found={this.state.found}
-                    won={this.state.found.length === this.state.mission.length}/>
->>>>>>> 4c8b88fcaabc88edf8a7b824897b8146e81115a4
-      </div>
+        <FoundBox found={this.state.found} won={this.state.found.length === this.state.mission.length}/>
+
+        <div className="image_container">
+          <div className="main_image"> <img src={TrashMountain} height="900" alt="Trash Mountain"/> </div>
+          <ItemList className="item" list={this.state.imgsLeft} handleClick={this.handleItemClick} />
+        </div>
+
     </div>
     )
   }

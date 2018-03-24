@@ -3,6 +3,12 @@
   text-align: center;
 }
 
+.game {
+  display: inline-block;
+  position: relative;
+  text-align: center;
+}
+
 .image_container {
   display: inline-block;
   position: relative;
@@ -18,8 +24,6 @@
     font-family: 'bubblegum';
     src: url(bubblegum.ttf);
 } */
-
-
 
 
 /* ---------------------------- LANDING PAGE -------------------------------- */
@@ -53,6 +57,6 @@ a:visited {
 .item {
   position: absolute;
   z-index: 2;
-  left: 0px;
   top: 0px;
+  left: 0px;
 }
