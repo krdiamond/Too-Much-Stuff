@@ -8,7 +8,7 @@ const FoundBox = (props) => {
       <div>FOUND ITEMS</div>
       {/* NOTE: this handleClick will need to get to the div holding the items some other way eventually */}
       <ItemList list={props.found} handleClick={props.handleClick} />
-      {(props.won) ? "YOU WON!!!" : null}
+      <div>{(props.won) ? "YOU WON!!!" : null}</div>
     </div>
   )
 }

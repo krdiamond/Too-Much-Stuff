@@ -3,14 +3,6 @@
   text-align: center;
 }
 
-.image_container {
-
-}
-
-.main_image {
-  position: relative;
-  z-index: 1;
-}
 
 /* @font-face {
     font-family: 'bubblegum';
@@ -19,6 +11,12 @@
 
 
 /* ---------------------------- LANDING PAGE -------------------------------- */
+
+.landing_container {
+  position: relative;
+  display: inline-block;
+}
+
 
 .start_button{
   position: absolute;
@@ -46,6 +44,17 @@ a:visited {
 
 /* ---------------------------- GAME PAGE ----------------------------------- */
 
+.image_container {
+  display: inline-block;
+}
+
+.main_image {
+  position: relative;
+  z-index: 1;
+  height:900px;
+  width: 900px
+}
+
 .game {
   display: inline-block;
   width: 1120px;
@@ -63,8 +72,5 @@ a:visited {
 }
 
 .item {
-  position: relative;
   z-index: 2;
-  top: 0px;
-  left: 0px;
 }
