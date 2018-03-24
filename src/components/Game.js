@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import TrashMountain from '../images/trash_mountain.jpg';
 import FoundBox from './FoundBox'
 import MissionBox from './MissionBox'
 import ItemList from './ItemList'
