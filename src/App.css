@@ -3,12 +3,6 @@
   text-align: center;
 }
 
-.game {
-  display: inline-block;
-  position: relative;
-  text-align: center;
-}
-
 .image_container {
   display: inline-block;
   position: relative;
@@ -53,6 +47,27 @@ a:visited {
 }
 
 /* ---------------------------- GAME PAGE ----------------------------------- */
+
+.game {
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  width: 1150px;
+}
+
+.game-status {
+  float:left;
+  width: 200px;
+}
+
+.status-box{
+  width: 200px;
+  height:200px;
+  position: relative;
+  border: 2px solid red;
+  display: inline-block;
+  text-align: center;
+}
 
 .item {
   position: absolute;
