@@ -1,11 +1,10 @@
 import React from 'react';
 
 const User = (props) => {
-  const { username } = props
-  console.log("User props:", props)
-  console.log("username:", username)
+  const { username, user } = props
+  const name = username || user
   return (
-    <div>WELCOME {username}</div>
+    <div>WELCOME {name.toUpperCase()}</div>
   )
 }
 
