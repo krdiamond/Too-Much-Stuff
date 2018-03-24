@@ -63,34 +63,24 @@ a:visited {
 }
 
 
-
 .image_container {
-  display: inline-block;
-  position: relative;
   background-image: url("images/trash_mountain.jpg");
   background-repeat: no-repeat;
   background-size: 100%;
   height: 900px;
   width: 900px;
-}
-
-.main_image {
+  display: inline-block;
   position: relative;
-  z-index: 1;
-  height: 900px;
-  width: 900px;
-
 }
 
 .game-status-item {
-  position: relative;
   z-index: 3;
   width: 30px;
   height:30px;
 }
 
 .item {
-  position: relative;
+  position: absolute;
   z-index: 3;
   width: 100px;
   height:100px;

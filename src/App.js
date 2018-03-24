@@ -10,9 +10,9 @@ class App extends Component {
     y: 0
   }
 
-  onMouseMove = (e) => {
-    this.setState({ x: e.screenX, y: e.screenY });
-  }
+  // onMouseMove = (e) => {
+  //   this.setState({ x: e.screenX, y: e.screenY });
+  // }
 
   render() {
     const { x, y } = this.state;
@@ -21,10 +21,12 @@ class App extends Component {
         <Route path="/" exact component={Landing} />
         <Route path="/game" exact component={Game} />
         <Route path="/users" exact component={Game} />
-        <h1 className="coordinates">Mouse coordinates: { x } { y }</h1>
+
       </div>
     );
   }
 }
 
 export default App;
+
+        // <h1 className="coordinates">Mouse coordinates: { x } { y }</h1>

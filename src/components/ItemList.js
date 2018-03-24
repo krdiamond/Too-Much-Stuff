@@ -1,8 +1,16 @@
 import React from 'react';
 import Item from './Item'
 
+
+
 const ItemList = (props) => {
+
+
+
   const { className } = props
+
+
+
   const imgs = (props.list) ?
     props.list.map((img) => {
       return (
