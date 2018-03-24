@@ -6,7 +6,7 @@ const ItemList = (props) => {
   (props.list) ?
     imgs = props.list.map((img) => {
       return (
-        <Item img={img} handleClick={props.handleClick}/>
+        <Item img={img} key={img.id} handleClick={props.handleClick}/>
       )
     })
   : null

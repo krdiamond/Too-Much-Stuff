@@ -16,14 +16,17 @@ export default class Game extends Component {
     .then(res => res.json())
     .then(imgs => {
       const mission = imgs.slice(0, 3)
-      this.setState({ imgs, mission, imgsLeft: imgs }, () => console.log("stage imgs after fetch", this.state))
+      this.setState({ imgs, mission, imgsLeft: imgs })
     })
   }
 
   handleItemClick = (img) => {
     if (this.state.mission.includes(img)) {
-      const imgsLeft = this.state.imgs.filter((item) => item !== img)
-      this.setState({ solution: [...this.state.solution, img], imgsLeft: imgsLeft })
+      const filteredImgsLeft = this.state.imgsLeft.filter((item) => item !== img)
+      console.log("new imgsLeft after filter:", filteredImgsLeft, "img:", img)
+      if (!this.state.solution.includes(img)) {
+        this.setState({ solution: [...this.state.solution, img], imgsLeft: filteredImgsLeft }, () => console.log("NEW STATE:", this.state))
+      }
     }
   }
 
@@ -32,9 +35,9 @@ export default class Game extends Component {
       <div className="game">
         <div className="trash_mountain"> <img src={TrashMountain} height="900" alt="Trash Mountain"/> </div>
         <div>
-          {this.state.imgs ? this.state.imgs.map((img) => {
+          {this.state.imgsLeft ? this.state.imgsLeft.map((img) => {
             return (
-              <Item img={img} handleClick={this.handleItemClick}/>
+              <Item img={img} key={img.id} handleClick={this.handleItemClick}/>
             )
           })
           : null
