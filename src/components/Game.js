@@ -3,6 +3,7 @@ import TrashMountain from '../images/trash_mountain.jpg';
 import Item from './Item'
 import FoundBox from './FoundBox'
 import MissionBox from './MissionBox'
+import ItemList from './ItemList'
 
 export default class Game extends Component {
   state = {
@@ -33,24 +34,17 @@ export default class Game extends Component {
 
   render() {
     return(
+    <div>
       <div className="game">
         <div className="trash_mountain"> <img src={TrashMountain} height="900" alt="Trash Mountain"/> </div>
-        <div> {/*This div is temporary -- will be replaced with logic/components that place items */}
-          {this.state.imgsLeft ? this.state.imgsLeft.map((img) => {
-            return (
-              <Item img={img} key={img.id} handleClick={this.handleItemClick}/>
-            )
-          })
-          : null
-          }
-        </div> {/* Temp FoundBox to test out moving items to box */}
-        <div style={{height: 200}}>
-          <MissionBox  mission={this.state.mission} />
-          <FoundBox  found={this.state.found}
-                        won={this.state.found.length === this.state.mission.length}
-                        handleClick={this.handleItemClick}/>
-        </div>
+        <ItemList list={this.state.imgsLeft} handleClick={this.handleItemClick} />
       </div>
+      <div style={{height: 200}}>
+        <MissionBox mission={this.state.mission} />
+        <FoundBox   found={this.state.found}
+                    won={this.state.found.length === this.state.mission.length}/>
+      </div>
+    </div>
     )
   }
 }
