@@ -6,7 +6,7 @@ const Item = (props) => {
       <img  height="30"
             width="30"
             src={props.img.src}
-            onClick={() => props.handleClick(props.img)}
+            onClick={() => (props.handleClick ? props.handleClick(props.img) : null )}
             alt={props.img.name}
             className={className}/>
   )
