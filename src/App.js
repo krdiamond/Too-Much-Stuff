@@ -1,32 +1,43 @@
 import React, { Component } from 'react';
 import Landing from './components/Landing';
 import Game from './components/Game';
-import { Route } from "react-router-dom";
+import UsersContainer from './components/UsersContainer';
+import { Route, Redirect } from 'react-router'
 import './App.css';
 
 class App extends Component {
   state = {
-    x: 0,
-    y: 0
+    currentUser: ''
   }
 
-  // onMouseMove = (e) => {
-  //   this.setState({ x: e.screenX, y: e.screenY });
-  // }
+  setUser = (user) => {
+    this.setState({currentUser: user})
+  }
 
   render() {
-    const { x, y } = this.state;
     return (
-      <div className="app" onMouseMove={this.onMouseMove}>
-        <Route path="/" exact component={Landing} />
-        <Route path="/game" exact component={Game} />
-        <Route path="/users" exact component={Game} />
+      <div className="app">
+        <Route exact path="/" render={() => (
+            this.state.currentUser ? (
+              <Redirect to="/game"/>
+            ) : (
+              <Landing/>
+            )
+          )}/>
+        <Route exact path="/game" render={() => (
+              !this.state.currentUser ? (
+                <Redirect to="/users"/>
+              ) : (
+                <Game/>
+              )
+            )}/>
+          <Route path="/users" exact render={() => {
+              return <UsersContainer handleSetUser={this.setUser}/>
+            }} />
+            <Route path="/users/:username" exact component={ UsersContainer } />
+          </div>
+        );
+      }
+    }
 
-      </div>
-    );
-  }
-}
-
-export default App;
-
-        // <h1 className="coordinates">Mouse coordinates: { x } { y }</h1>
+    export default App;
