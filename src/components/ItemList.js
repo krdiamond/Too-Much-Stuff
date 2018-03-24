@@ -2,10 +2,11 @@ import React from 'react';
 import Item from './Item'
 
 const ItemList = (props) => {
+  const { className } = props
   const imgs = (props.list) ?
     props.list.map((img) => {
       return (
-        <Item img={img} key={img.id} handleClick={props.handleClick}/>
+        <Item className={className} img={img} key={img.id} handleClick={props.handleClick}/>
       )
     })
   : null

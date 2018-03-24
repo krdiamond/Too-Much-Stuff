@@ -1,8 +1,9 @@
 import React from 'react';
 
 const Item = (props) => {
+  const { className } = props
   return(
-    <span className="item">
+    <span className={className}>
       <img  src={props.img.src}
             onClick={() => props.handleClick(props.img)}
             style={{height: '30px', width: '30px'}}

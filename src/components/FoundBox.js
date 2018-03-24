@@ -10,7 +10,7 @@ const FoundBox = (props) => {
                                   textAlign: 'center'}}>
       {"FOUND ITEMS"}
       {/* NOTE: this handleClick will need to get to the div holding the items some other way eventually */}
-      <ItemList list={props.found} handleClick={props.handleClick} />
+      <ItemList list={props.found} handleClick={props.handleClick} className={'found'}/>
       {(props.won) ? "YOU WON!!!" : null}
     </div>
   )

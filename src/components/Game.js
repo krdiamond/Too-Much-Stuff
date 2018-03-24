@@ -40,7 +40,7 @@ export default class Game extends Component {
         </div>
         <div className="image_container">
           <div className="main_image"> <img src={TrashMountain} height="900" alt="Trash Mountain"/> </div>
-          <ItemList className="item" list={this.state.imgsLeft} handleClick={this.handleItemClick} />
+          <ItemList className="item" list={this.state.imgsLeft} handleClick={this.handleItemClick}/>
         </div>
 
     </div>

@@ -20,6 +20,7 @@ class App extends Component {
       <div className="app" onMouseMove={this.onMouseMove}>
         <Route path="/" exact component={Landing} />
         <Route path="/game" exact component={Game} />
+        <Route path="/users" exact component={Game} />
         <h1>Mouse coordinates: { x } { y }</h1>
       </div>
     );
