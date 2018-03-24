@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import TrashMountain from '../images/trash_mountain.jpg';
 import Item from './Item'
-import SolutionBox from './SolutionBox'
+import FoundBox from './FoundBox'
+import MissionBox from './MissionBox'
 
 export default class Game extends Component {
   state = {
     imgs: [],
-    solution: [],
+    found: [],
     mission: [],
     imgsLeft: [],
   }
@@ -24,8 +25,8 @@ export default class Game extends Component {
     if (this.state.mission.includes(img)) {
       const filteredImgsLeft = this.state.imgsLeft.filter((item) => item !== img)
       console.log("new imgsLeft after filter:", filteredImgsLeft, "img:", img)
-      if (!this.state.solution.includes(img)) {
-        this.setState({ solution: [...this.state.solution, img], imgsLeft: filteredImgsLeft }, () => console.log("NEW STATE:", this.state))
+      if (!this.state.found.includes(img)) {
+        this.setState({ found: [...this.state.found, img], imgsLeft: filteredImgsLeft }, () => console.log("NEW STATE:", this.state))
       }
     }
   }
@@ -42,10 +43,13 @@ export default class Game extends Component {
           })
           : null
           }
-        </div> {/* Temp SolutionBox to test out moving items to solution box */}
-        <SolutionBox  solution={this.state.solution}
-                      won={this.state.solution.length === this.state.mission.length}
-                      handleClick={this.handleItemClick}/>
+        </div> {/* Temp FoundBox to test out moving items to box */}
+        <div style={{height: 200}}>
+          <MissionBox  mission={this.state.mission} />
+          <FoundBox  found={this.state.found}
+                        won={this.state.found.length === this.state.mission.length}
+                        handleClick={this.handleItemClick}/>
+        </div>
       </div>
     )
   }

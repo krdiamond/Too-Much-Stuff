@@ -1,18 +1,19 @@
 import React from 'react';
 import ItemList from './ItemList'
 
-const SolutionBox = (props) => {
-  console.log("SolutionBox Props:", props)
+const MissionBox = (props) => {
+  console.log("MissionBox Props:", props)
   return(
-    <div className="temp" style={{height: 100,
+    <div className="temp" style={{height: 200,
                                   width: 200,
+                                  position: 'relative',
                                   border: '2px solid red',
                                   display: 'inline-block',
                                   "text-align": 'center'}}>
-      <ItemList list={props.solution} handleClick={props.handleClick} />
-      {(props.won) ? "YOU WON!!!" : null}
+      {"YOUR MISSION"}
+      <ItemList list={props.mission} />
     </div>
   )
 }
 
-export default SolutionBox;
+export default MissionBox;
