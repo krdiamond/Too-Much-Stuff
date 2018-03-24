@@ -7,7 +7,8 @@ const Item = (props) => {
             width="30"
             src={props.img.src}
             onClick={() => props.handleClick(props.img)}
-            alt={props.img.name}/>
+            alt={props.img.name}
+            className={className}/>
   )
 }
 
