@@ -39,7 +39,6 @@ export default class Game extends Component {
           <FoundBox  found={this.state.found} won={this.state.found.length === this.state.mission.length}/>
         </div>
         <div className="image_container">
-          <div className="main_image"> <img src={TrashMountain} height="900" alt="Trash Mountain"/> </div>
           <ItemList className="item" list={this.state.imgsLeft} handleClick={this.handleItemClick}/>
         </div>
 

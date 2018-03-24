@@ -1,18 +1,9 @@
 
 .app {
   text-align: center;
+  height: 1000px;
 }
 
-.image_container {
-  display: inline-block;
-  position: relative;
-  text-align: center;
-}
-
-.main_image {
-  position: relative;
-  z-index: 1;
-}
 
 /* @font-face {
     font-family: 'bubblegum';
@@ -21,6 +12,12 @@
 
 
 /* ---------------------------- LANDING PAGE -------------------------------- */
+
+.landing_container {
+  position: relative;
+  display: inline-block;
+}
+
 
 .start_button{
   position: absolute;
@@ -50,9 +47,8 @@ a:visited {
 
 .game {
   display: inline-block;
-  position: relative;
-  text-align: center;
-  width: 1150px;
+  width: 1120px;
+  height: 1000px;
 }
 
 .game-status {
@@ -63,15 +59,30 @@ a:visited {
 .status-box{
   width: 200px;
   height:200px;
-  position: relative;
   border: 2px solid red;
-  display: inline-block;
-  text-align: center;
 }
 
-.item {
+
+
+.image_container {
+  display: inline-block;
+  position: relative;
+  background-image: url("images/trash_mountain.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  height: 900px;
+  width: 900px;
+}
+
+.main_image {
+  position: relative;
+  z-index: 1;
+  height: 900px;
+  width: 900px;
+
+}
+
+.search-item {
   position: absolute;
-  z-index: 2;
-  top: 0px;
-  left: 0px;
+  z-index: 3;
 }

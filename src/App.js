@@ -21,7 +21,7 @@ class App extends Component {
         <Route path="/" exact component={Landing} />
         <Route path="/game" exact component={Game} />
         <Route path="/users" exact component={Game} />
-        <h1>Mouse coordinates: { x } { y }</h1>
+        <h1 className="coordinates">Mouse coordinates: { x } { y }</h1>
       </div>
     );
   }
