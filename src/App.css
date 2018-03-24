@@ -82,7 +82,16 @@ a:visited {
 
 }
 
-.search-item {
-  position: absolute;
+.game-status-item {
+  position: relative;
   z-index: 3;
+  width: 30px;
+  height:30px;
+}
+
+.item {
+  position: relative;
+  z-index: 3;
+  width: 100px;
+  height:100px;
 }
