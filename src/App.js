@@ -24,7 +24,13 @@ class App extends Component {
               <Landing/>
             )
           )}/>
-          <Route path="/game" exact component={Game} />
+        <Route exact path="/game" render={() => (
+              !this.state.currentUser ? (
+                <Redirect to="/users"/>
+              ) : (
+                <Game/>
+              )
+            )}/>
           <Route path="/users" exact render={() => {
               return <UsersContainer handleSetUser={this.setUser}/>
             }} />
