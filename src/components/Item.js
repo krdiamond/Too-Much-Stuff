@@ -4,7 +4,7 @@ const Item = (props) => {
   const { className } = props
   return(
       <img  src={props.img.src}
-            onClick={() => props.handleClick(props.img)}
+            onClick={() => (props.handleClick ? props.handleClick(props.img) : null )}
             alt={props.img.name}
             className={className}/>
   )
