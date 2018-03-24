@@ -5,7 +5,7 @@ const MissionBox = (props) => {
   console.log("MissionBox Props:", props)
   return(
     <div className="status-box">
-      {"YOUR MISSION"}
+      <div>YOUR MISSION</div>
       <ItemList list={props.mission} />
     </div>
   )

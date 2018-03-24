@@ -4,9 +4,7 @@
 }
 
 .image_container {
-  display: inline-block;
-  position: relative;
-  text-align: center;
+
 }
 
 .main_image {
@@ -50,9 +48,7 @@ a:visited {
 
 .game {
   display: inline-block;
-  position: relative;
-  text-align: center;
-  width: 1150px;
+  width: 1120px;
 }
 
 .game-status {
@@ -63,14 +59,11 @@ a:visited {
 .status-box{
   width: 200px;
   height:200px;
-  position: relative;
   border: 2px solid red;
-  display: inline-block;
-  text-align: center;
 }
 
 .item {
-  position: absolute;
+  position: relative;
   z-index: 2;
   top: 0px;
   left: 0px;
