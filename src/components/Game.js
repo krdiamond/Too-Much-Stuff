@@ -32,6 +32,7 @@ export default class Game extends Component {
   }
 
   render() {
+    console.log(this.state.imgsLeft)
     return(
       <div className="game">
         <div className="game-status">
@@ -39,7 +40,12 @@ export default class Game extends Component {
           <FoundBox  found={this.state.found} won={this.state.found.length === this.state.mission.length}/>
         </div>
         <div className="image_container">
-          <ItemList className="item" list={this.state.imgsLeft} handleClick={this.handleItemClick}/>
+          <div id="item-location-1">
+            <ItemList id="location-1" className="item" list={this.state.imgsLeft.slice(1,5)} handleClick={this.handleItemClick}/>
+          </div>
+          <div id="item-location-2">
+            <ItemList id="location-2" className="item" list={this.state.imgsLeft.slice(0,1)} handleClick={this.handleItemClick}/>
+          </div>
         </div>
 
     </div>
