@@ -86,9 +86,9 @@ a:visited {
   left: 0px;
   height: 500px;
   width:900px;
-  /* border-style: solid;
+  border-style: solid;
   border-width: 5px;
-  border-color: red; */
+  border-color: red;
 }
 
 #item-location-2 {
@@ -98,9 +98,9 @@ a:visited {
   left: 250px;
   height: 200px;
   width:300px;
-  /* border-style: solid;
+  border-style: solid;
   border-width: 5px;
-  border-color: red; */
+  border-color: red;
 }
 
 

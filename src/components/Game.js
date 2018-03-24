@@ -32,7 +32,6 @@ export default class Game extends Component {
   }
 
   render() {
-    console.log(this.state.imgsLeft)
     return(
       <div className="game">
         <div className="game-status">
@@ -41,10 +40,10 @@ export default class Game extends Component {
         </div>
         <div className="image_container">
           <div id="item-location-1">
-            <ItemList id="location-1" className="item" list={this.state.imgsLeft.slice(1,5)} handleClick={this.handleItemClick}/>
+            <ItemList id="location-1" className="item" list={this.state.imgsLeft.slice(0,-2)} handleClick={this.handleItemClick}/>
           </div>
           <div id="item-location-2">
-            <ItemList id="location-2" className="item" list={this.state.imgsLeft.slice(0,1)} handleClick={this.handleItemClick}/>
+            <ItemList id="location-2" className="item" list={this.state.imgsLeft.slice(-2)} handleClick={this.handleItemClick}/>
           </div>
         </div>
 
