@@ -34,7 +34,7 @@ export default class Game extends Component {
     return(
       <div className="game">
         <div className="trash_mountain"> <img src={TrashMountain} height="900" alt="Trash Mountain"/> </div>
-        <div>
+        <div> {/*This div is temporary -- will be replaced with logic/components that place items */}
           {this.state.imgsLeft ? this.state.imgsLeft.map((img) => {
             return (
               <Item img={img} key={img.id} handleClick={this.handleItemClick}/>
@@ -42,9 +42,11 @@ export default class Game extends Component {
           })
           : null
           }
-        </div>
-        <SolutionBox solution={this.state.solution} handleClick={this.handleItemClick}/>
+        </div> {/* Temp SolutionBox to test out moving items to solution box */}
+        <SolutionBox  solution={this.state.solution}
+                      won={this.state.solution.length === this.state.mission.length}
+                      handleClick={this.handleItemClick}/>
       </div>
-  )
-}
+    )
+  }
 }
