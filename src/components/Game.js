@@ -43,10 +43,9 @@ export default class Game extends Component {
         <div className="game-status">
           <MissionBox  mission={this.state.mission} />
           <FoundBox  found={this.state.found} won={this.state.won} user={this.props.currentUser}/>
-          <Timer won={this.state.won}/>
           { (!this.state.gameStarted) ?
             <button className={'start_game'} onClick={this.startGame}>{'START GAME'}</button>
-            : null
+            : <Timer won={this.state.won}/>
           }
         </div>
         <div className="image_container">

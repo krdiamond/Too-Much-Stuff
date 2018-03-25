@@ -6,6 +6,10 @@ export default class Timer extends React.Component {
     pause: true,
   }
 
+  componentDidMount() {
+    this.startTimer()
+  }
+
   startTimer = () => {
     this.timer = setInterval(this.tick, 1000)
   }
@@ -29,7 +33,7 @@ export default class Timer extends React.Component {
   }
 
   render() {
-    (this.props.won) ? this.stopTimer() : null
+    ((this.props.won) ? this.stopTimer() : null)
     return (
         <div>
           <p><b>{this.state.seconds} seconds</b></p>
