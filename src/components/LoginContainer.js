@@ -16,7 +16,7 @@ export default class LoginContainer extends Component {
 
   handleSetUser = (user) => {
     //does user already exist?
-    const foundUser = this.state.users.find(u => u.username === user.username)
+    const foundUser = this.state.users.find(u => u.username.toLowerCase() === user.username.toLowerCase())
     if (foundUser) {
       this.props.handleSetUser(foundUser)
     } else {
