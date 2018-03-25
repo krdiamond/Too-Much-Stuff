@@ -2,31 +2,38 @@ import React from 'react'
 
 export default class Timer extends React.Component {
   state = {
-    elapsed: 0,
+    seconds: 0,
+    pause: true,
   }
 
-  componentDidMount = () => {
-      // componentDidMount is called by react when the component
-      // has been rendered on the page. We can set the interval here:
-      this.timer = setInterval(this.tick, 1000);
+  startTimer = () => {
+    this.timer = setInterval(this.tick, 1000)
   }
-
-  // shouldComponentUpdate(nextProps) {
-  //   this.props.won === nextProps.won
-  // }
 
   stopTimer = () => {
-      // This method is called immediately before the component is removed
-      // from the page and destroyed. We can clear the interval here:
-      clearInterval(this.timer);
+    clearInterval(this.timer)
   }
 
   tick = () => {
-      this.setState({elapsed: this.state.elapsed + 1});
+      this.setState({seconds: this.state.seconds + 1});
+  }
+
+  toggleTimer = () => {
+    this.setState({ pause: !this.state.pause}, () => {
+      if (this.state.pause) {
+        this.stopTimer()
+      } else {
+        this.startTimer()
+      }
+    })
   }
 
   render() {
-    { (this.props.won) ? this.stopTimer() : null }
-    return <p><b>{this.state.elapsed} seconds</b></p>;
+    return (
+        <div>
+          <p><b>{this.state.seconds} seconds</b></p>
+          <button onClick={this.toggleTimer}>{(this.state.pause) ? 'START' : 'STOP'}</button>
+        </div>
+      )
   }
 };
