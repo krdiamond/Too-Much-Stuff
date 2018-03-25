@@ -34,7 +34,7 @@ export default class Game extends Component {
       <div className="game">
         <div className="game-status">
           <MissionBox  mission={this.state.mission} />
-          <FoundBox  found={this.state.found} won={this.state.found.length === this.state.mission.length}/>
+          <FoundBox found={this.state.found} won={this.state.found.length === this.state.mission.length}/>
         </div>
         <div className="image_container">
           <div id="item-location-1">
