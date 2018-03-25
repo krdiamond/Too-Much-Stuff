@@ -42,7 +42,7 @@ export default class Game extends Component {
         <div className="game-status">
           <MissionBox  mission={this.state.mission} />
           <FoundBox  found={this.state.found} won={this.state.won} user={this.props.currentUser}/>
-          <Timer />
+          <Timer won={this.state.won}/>
         </div>
         <div className="image_container">
           <div id="item-location-1">

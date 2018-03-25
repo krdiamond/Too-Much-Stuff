@@ -3,7 +3,11 @@ import React from 'react'
 export default class Timer extends React.Component {
   state = {
     seconds: 0,
-    pause: true,
+    pause: false,
+  }
+
+  componentDidMount() {
+    this.startTimer()
   }
 
   startTimer = () => {
@@ -29,6 +33,7 @@ export default class Timer extends React.Component {
   }
 
   render() {
+    (this.props.won) ? this.stopTimer() : null
     return (
         <div>
           <p><b>{this.state.seconds} seconds</b></p>
