@@ -11,10 +11,7 @@ export default class Game extends Component {
     mission: [],
     imgsLeft: [],
     won: false,
-  }
-
-  componentDidMount() {
-    this.startGame()
+    gameStarted: false,
   }
 
   startGame = () => {
@@ -22,7 +19,7 @@ export default class Game extends Component {
     .then(res => res.json())
     .then(imgs => {
       const mission = imgs.slice(0, 3)
-      this.setState({ imgs, mission, imgsLeft: imgs, won: false, found: [] })
+      this.setState({ imgs, mission, imgsLeft: imgs, won: false, found: [], gameStarted: true })
     })
   }
 
@@ -35,19 +32,28 @@ export default class Game extends Component {
 
   handleWin = () => {
     if (this.state.mission.length === this.state.found.length) {
-      this.setState({ won: true})
+      this.setState({ won: true, gameStarted: false})
     }
   }
 
   render() {
+    console.log("GAME STARTED?", this.state.gameStarted)
     return(
       <div className="game">
         <div className="game-status">
           <MissionBox  mission={this.state.mission} />
           <FoundBox  found={this.state.found} won={this.state.won} user={this.props.currentUser}/>
-          <Timer won={this.state.won} handleRestart={this.startGame}/>
+          <Timer won={this.state.won}/>
+          { (!this.state.gameStarted) ?
+            <button className={'start_game'} onClick={this.startGame}>{'START GAME'}</button>
+            : null
+          }
         </div>
         <div className="image_container">
+          { (this.state.won) ?
+            <div className={'winning'}>{`YOU WON ${this.props.currentUser.username.toUpperCase()}!!!!`}</div>
+            : null
+          }
           <div id="item-location-1">
             <ItemList id="location-1" className="item" list={this.state.imgsLeft.slice(0,-2)} handleClick={this.handleItemClick}/>
           </div>

@@ -50,7 +50,7 @@ a:visited {
   z-index: 4;
   left:520px;
   top: 302px;
-  background-color: red;
+  background-color: green;
   border: 3px solid white;
   color: white;
   padding: 10px;
@@ -78,6 +78,12 @@ a:visited {
   padding: 3px;
 }
 
+.winning {
+  color: blue;
+  font-size: 56px;
+  font-weight: bold;
+  margin: 40px;
+}
 
 #found-box {
   background-image: url("images/empty-box.png");

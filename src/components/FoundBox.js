@@ -7,7 +7,6 @@ const FoundBox = (props) => {
   return(
     <div id="found-box">
       <ItemList list={props.found} handleClick={props.handleClick} className={'game-status-item'}/>
-      <div style={{color: 'blue', fontSize: '24px', fontWeight: 'bold', margin: '40px'}}>{(props.won) ? `YOU WON ${username.toUpperCase()}!!!!` : null}</div>
     </div>
   )
 }
