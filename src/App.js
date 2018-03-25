@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Landing from './components/Landing';
 import Game from './components/Game';
-import UsersContainer from './components/UsersContainer';
+import LoginContainer from './components/LoginContainer';
 import { Route, Redirect } from 'react-router'
 import './App.css';
 
@@ -12,6 +12,21 @@ class App extends Component {
 
   setUser = (user) => {
     this.setState({currentUser: user})
+  }
+
+  createUser = (newUser) => {
+    const options = {
+      method: 'post',
+      headers: {
+        "Content-Type": 'application/json',
+        Accepts: 'application/json'
+      },
+      body: JSON.stringify({ "user": {"username": newUser.username, "password": newUser.password} })
+    }
+
+    fetch('http://localhost:3000/users', options)
+      .then(res => res.json())
+      .then(user => this.setState({currentUser: user}))
   }
 
   render() {
@@ -26,18 +41,21 @@ class App extends Component {
           )}/>
         <Route exact path="/game" render={() => (
               !this.state.currentUser ? (
-                <Redirect to="/users"/>
+                <Redirect to="/login"/>
               ) : (
-                <Game/>
+                <Game currentUser={this.state.currentUser}/>
               )
-            )}/>
-          <Route path="/users" exact render={() => {
-              return <UsersContainer handleSetUser={this.setUser}/>
-            }} />
-            <Route path="/users/:username" exact component={ UsersContainer } />
-          </div>
-        );
-      }
-    }
+          )}/>
+        <Route exact path="/login" render={() => (
+            this.state.currentUser ? (
+              <Redirect to="/game"/>
+            ) : (
+              <LoginContainer handleSetUser={this.setUser} handleAddUser={this.createUser}/>
+            )
+          )}/>
+      </div>
+    );
+  }
+}
 
     export default App;

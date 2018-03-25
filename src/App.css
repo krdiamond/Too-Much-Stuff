@@ -113,19 +113,49 @@ a:visited {
 
 /* ---------------------------- USERS PAGE ----------------------------------- */
 
-.choose-user-list {
-  float: middle;
-  background: purple;
-  color: white;
+.login-container {
+  background-color: #f2f2f2;
+  height: 100vh;
 }
-.choose-user-list ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
+
+input {
+    width: 60%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
 }
-.choose-user-list a {
+
+input[type=submit] {
+    width: 60%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+.login-form {
+    border-radius: 5px;
+    padding: 40px;
+    font-size: 30px;
+}
+
+.add-user {
+  background-color: #4CAF50;
+  border: 3px solid white;
   color: white;
+  padding: 10px;
+  text-align: center;
   text-decoration: none;
-  padding: 15px;
-  display: block;
+  border-radius: 20px;
+  font-size: 20px;
 }

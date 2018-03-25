@@ -9,6 +9,7 @@ export default class Game extends Component {
     found: [],
     mission: [],
     imgsLeft: [],
+    won: false,
   }
 
   componentDidMount() {
@@ -21,11 +22,15 @@ export default class Game extends Component {
   }
 
   handleItemClick = (img) => {
-    if (this.state.mission.includes(img)) {
+    if (this.state.mission.includes(img) && !this.state.found.includes(img)) {
       const filteredImgsLeft = this.state.imgsLeft.filter((item) => item !== img)
-      if (!this.state.found.includes(img)) {
-        this.setState({ found: [...this.state.found, img], imgsLeft: filteredImgsLeft })
-      }
+      this.setState({ found: [...this.state.found, img], imgsLeft: filteredImgsLeft}, () => this.handleWin())
+    }
+  }
+
+  handleWin = () => {
+    if (this.state.mission.length === this.state.found.length) {
+      this.setState({ won: true})
     }
   }
 
@@ -34,7 +39,7 @@ export default class Game extends Component {
       <div className="game">
         <div className="game-status">
           <MissionBox  mission={this.state.mission} />
-          <FoundBox  found={this.state.found} won={this.state.found.length === this.state.mission.length}/>
+          <FoundBox  found={this.state.found} won={this.state.won} user={this.props.currentUser}/>
         </div>
         <div className="image_container">
           <div id="item-location-1">

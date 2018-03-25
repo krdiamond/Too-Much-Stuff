@@ -4,7 +4,6 @@ import Item from './Item'
 
 
 const ItemList = (props) => {
-
   const { className,id } = props
   const imgs = (props.list) ?
     props.list.map((img) => {
