@@ -3,7 +3,7 @@ import ItemList from './ItemList'
 
 const MissionBox = (props) => {
   return(
-    <div className="status-box">
+    <div id="mission-box">
       <div>YOUR MISSION</div>
       <ItemList list={props.mission} className={'game-status-item'}/>
     </div>
