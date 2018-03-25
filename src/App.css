@@ -46,7 +46,10 @@ a:visited {
 /* ---------------------------- GAME PAGE ----------------------------------- */
 
 .start_game{
-  z-index: 2;
+  position: absolute;
+  z-index: 4;
+  left:520px;
+  top: 302px;
   background-color: red;
   border: 3px solid white;
   color: white;
