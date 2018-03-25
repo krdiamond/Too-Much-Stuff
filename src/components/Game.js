@@ -54,10 +54,10 @@ export default class Game extends Component {
             : null
           }
           <div id="item-location-1">
-            <ItemList id="location-1" className="item" list={this.state.imgsLeft.slice(0,-3)} handleClick={this.handleItemClick}/>
+            <ItemList id="location-1" className="item" list={this.state.imgsLeft.slice(0,-4)} handleClick={this.handleItemClick}/>
           </div>
           <div id="item-location-2">
-            <ItemList id="location-2" className="item" list={this.state.imgsLeft.slice(-3)} handleClick={this.handleItemClick}/>
+            <ItemList id="location-2" className="item" list={this.state.imgsLeft.slice(-4)} handleClick={this.handleItemClick}/>
           </div>
         </div>
 

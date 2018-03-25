@@ -129,7 +129,7 @@ a:visited {
   left: 75px;
   height: 475px;
   width:700px;
-  /* border: 2px solid red; */
+  border: 2px solid red;
 }
 
 #item-location-2 {
