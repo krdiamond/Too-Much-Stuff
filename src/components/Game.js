@@ -42,7 +42,7 @@ export default class Game extends Component {
       <div className="game">
         <div className="game-status">
           <MissionBox  mission={this.state.mission} />
-          <FoundBox  found={this.state.found} won={this.state.won} user={this.props.currentUser}/>
+          <FoundBox found={this.state.found} won={this.state.won} user={this.props.currentUser}/>
           { (!this.state.gameStarted) ?
             <button className={'start_game'} onClick={this.startGame}>{'START GAME'}</button>
             : <Timer won={this.state.won}/>
@@ -54,10 +54,10 @@ export default class Game extends Component {
             : null
           }
           <div id="item-location-1">
-            <ItemList id="location-1" className="item" list={this.state.imgsLeft.slice(0,-2)} handleClick={this.handleItemClick}/>
+            <ItemList id="location-1" className="item" list={this.state.imgsLeft.slice(0,-3)} handleClick={this.handleItemClick}/>
           </div>
           <div id="item-location-2">
-            <ItemList id="location-2" className="item" list={this.state.imgsLeft.slice(-2)} handleClick={this.handleItemClick}/>
+            <ItemList id="location-2" className="item" list={this.state.imgsLeft.slice(-3)} handleClick={this.handleItemClick}/>
           </div>
         </div>
 
