@@ -45,6 +45,18 @@ a:visited {
 
 /* ---------------------------- GAME PAGE ----------------------------------- */
 
+.start_game{
+  z-index: 2;
+  background-color: red;
+  border: 3px solid white;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 20px;
+  font-size: 30px;
+}
+
 .game {
   display: inline-block;
   width: 1120px;

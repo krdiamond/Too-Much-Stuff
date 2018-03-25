@@ -33,7 +33,7 @@ export default class Timer extends React.Component {
     return (
         <div>
           <p><b>{this.state.seconds} seconds</b></p>
-          <button onClick={this.toggleTimer}>{(this.state.pause) ? 'START' : 'STOP'}</button>
+          <button className={'start_game'} onClick={this.toggleTimer}>{(this.state.pause) ? 'START GAME' : 'PAUSE'}</button>
         </div>
       )
   }
