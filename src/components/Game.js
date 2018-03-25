@@ -11,15 +11,18 @@ export default class Game extends Component {
     mission: [],
     imgsLeft: [],
     won: false,
-    start: false,
   }
 
   componentDidMount() {
+    this.startGame()
+  }
+
+  startGame = () => {
     fetch('http://localhost:3000/items')
     .then(res => res.json())
     .then(imgs => {
       const mission = imgs.slice(0, 3)
-      this.setState({ imgs, mission, imgsLeft: imgs })
+      this.setState({ imgs, mission, imgsLeft: imgs, won: false, found: [] })
     })
   }
 
@@ -42,7 +45,7 @@ export default class Game extends Component {
         <div className="game-status">
           <MissionBox  mission={this.state.mission} />
           <FoundBox  found={this.state.found} won={this.state.won} user={this.props.currentUser}/>
-          <Timer won={this.state.won}/>
+          <Timer won={this.state.won} handleRestart={this.startGame}/>
         </div>
         <div className="image_container">
           <div id="item-location-1">
