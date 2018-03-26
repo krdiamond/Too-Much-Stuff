@@ -82,7 +82,7 @@ a:visited {
 
 .mission-item {
   z-index: 3;
-  height: 70px;
+  height: 150px;
   padding: 0px;
 }
 
@@ -113,9 +113,22 @@ a:visited {
 
 #mission-box {
   width: 200px;
+<<<<<<< HEAD
+  height:500px;
+  /* border: 2px solid red; */
+=======
   height:200px;
   /* border: 2px solid #EB4640; */
+>>>>>>> 85727745b3012a76017953e5fa9468263885a9af
   font-family: 'bubblegum';
+  font-size: 22px;
+}
+
+#timer {
+  width: 200px;
+  height:150px;
+  border: 2px solid red;
+  /* font-family: 'bubblegum'; */
   font-size: 22px;
 }
 
