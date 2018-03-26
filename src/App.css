@@ -114,13 +114,9 @@ a:visited {
 #mission-box {
   width: 200px;
   height:200px;
-<<<<<<< HEAD
-  border: 2px solid #EB4640;
-=======
-  /* border: 2px solid red; */
+  /* border: 2px solid #EB4640; */
   font-family: 'bubblegum';
   font-size: 22px;
->>>>>>> 74cd802f5ccd9288ee8a0497eef01bda56234c1a
 }
 
 .image_container {
