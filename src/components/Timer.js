@@ -34,12 +34,9 @@ export default class Timer extends React.Component {
   render() {
     ((this.props.won) ? this.stopTimer() : null )
     return (
-        <div id="timer">
-          <p><b>{this.state.seconds} seconds</b></p>
           <div className={"timer"} >
             <p><b>{this.state.seconds}</b></p>
           </div>
-        </div>
       )
   }
 };
