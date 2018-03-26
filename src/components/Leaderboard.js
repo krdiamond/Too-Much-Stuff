@@ -33,8 +33,6 @@ export default class Leaderboard extends React.Component {
                 <div class="grid-item">{this.state.leaders[1].time}</div>
               </div>
               )
-    } else {
-      null
     }
   }
 
