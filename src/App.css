@@ -112,10 +112,15 @@ border-bottom-left-radius:25px;
 }
 
 .winning {
-  color: blue;
+  color: #2473A8;
   font-size: 56px;
   font-weight: bold;
-  margin: 40px;
+}
+
+.winning-small {
+  color: #2473A8;
+  font-size: 45px;
+  font-weight: bold;
 }
 
 #found-box {
