@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Landing from './components/Landing';
 import Game from './components/Game';
 import LoginContainer from './components/LoginContainer';
+import Leaderboard from './components/Leaderboard';
 import { Route, Redirect } from 'react-router'
 import './App.css';
 
@@ -53,6 +54,7 @@ class App extends Component {
               <LoginContainer handleSetUser={this.setUser} handleAddUser={this.createUser}/>
             )
           )}/>
+        <Route exact path="/leaderboard" component={Leaderboard} />
       </div>
     );
   }

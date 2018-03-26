@@ -21,21 +21,38 @@ export default class Game extends Component {
     .then(res => res.json())
     .then(imgs => {
       const mission = imgs.slice(0, 3)
-      this.setState({ imgs, mission, imgsLeft: imgs, won: false, found: [], started: true }, () => console.log("GAME STARTED!"))
+      this.setState({ imgs, mission, imgsLeft: imgs, won: false, found: [], started: true })
     })
   }
 
   handleItemClick = (img) => {
-    if (this.state.mission.includes(img) && !this.state.found.includes(img)) {
-      const filteredImgsLeft = this.state.imgsLeft.filter((item) => item !== img)
-      this.setState({ found: [...this.state.found, img], imgsLeft: filteredImgsLeft}, () => this.handleWin())
-    }
+    let foundImgs = this.state.found
+    console.log("ITEM CLICKED!!", img)
+    const filteredImgsLeft = this.state.imgsLeft.filter((item) => item !== img)
+    if (!this.state.found.includes(img) && this.state.mission.includes(img)) foundImgs = [...this.state.found, img]
+    const uniqFoundImgs = foundImgs.filter((item, index) => foundImgs.indexOf(item) === index)
+    this.setState({ found: uniqFoundImgs, imgsLeft: filteredImgsLeft}, () => this.handleWin())
   }
 
   handleWin = () => {
     if (this.state.mission.length === this.state.found.length) {
-      this.setState({ won: true, started: false }, () => console.log("GAME FINAL TIME:", this.state.time))
-    }
+      this.setState({ won: true, started: false }, () => {
+        console.log("FINAL TIME:", this.state.time)
+        //POST game to /games
+        const options = {
+          method: 'post',
+          headers: {
+            "Content-Type": 'application/json',
+            Accepts: 'application/json'
+          },
+          body: JSON.stringify({ "game": {"username": this.props.currentUser.username, "time": this.state.time} })
+        }
+
+        fetch('http://localhost:3000/games', options)
+          .then(res => res.json())
+          .then(game => console.log("GAME PERSISTED:", game))
+      }
+    )}
   }
 
   setFinalTime = (seconds) => {
@@ -43,7 +60,6 @@ export default class Game extends Component {
   }
 
   render() {
-    console.log("GAME STARTED?", this.state.started)
     return(
       <div id="game">
         <div id="game-status">

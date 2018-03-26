@@ -15,24 +15,21 @@ export default class Timer extends React.Component {
   }
 
   startTimer = () => {
-    console.log("STARTING TIMER!")
     this.timer = setInterval(this.tick, 1000)
   }
 
   stopTimer = () => {
-    console.log("STOPPING TIMER!")
     clearInterval(this.timer)
   }
 
   tick = () => {
-    console.log("TICK!")
     this.setState({seconds: this.state.seconds + 1}, () => {
       this.props.handleFinalTime(this.state.seconds)
     });
   }
 
   render() {
-    ((this.props.won) ? this.stopTimer() : null )
+    if (this.props.won) this.stopTimer()
     return (
           <div className={"timer"} >
             <strong>{this.state.seconds}</strong>
