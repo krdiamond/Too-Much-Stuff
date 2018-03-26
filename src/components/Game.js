@@ -11,7 +11,8 @@ export default class Game extends Component {
     mission: [],
     imgsLeft: [],
     won: false,
-    gameStarted: false,
+    time: 0,
+    started: false,
   }
 
   startGame = () => {
@@ -19,7 +20,7 @@ export default class Game extends Component {
     .then(res => res.json())
     .then(imgs => {
       const mission = imgs.slice(0, 3)
-      this.setState({ imgs, mission, imgsLeft: imgs, won: false, found: [], gameStarted: true })
+      this.setState({ imgs, mission, imgsLeft: imgs, won: false, found: [], started: true }, () => console.log("GAME STARTED!"))
     })
   }
 
@@ -32,20 +33,23 @@ export default class Game extends Component {
 
   handleWin = () => {
     if (this.state.mission.length === this.state.found.length) {
-      this.setState({ won: true, gameStarted: false})
+      this.setState({ won: true, started: false }, () => console.log("GAME FINAL TIME:", this.state.time))
     }
   }
 
+  setFinalTime = (seconds) => {
+    this.setState({time: seconds})
+  }
+
   render() {
-    console.log("GAME STARTED?", this.state.gameStarted)
     return(
       <div className="game">
         <div className="game-status">
           <MissionBox  mission={this.state.mission} />
           <FoundBox  found={this.state.found} won={this.state.won} user={this.props.currentUser}/>
-          { (!this.state.gameStarted) ?
+          { (!this.state.started) ?
             <button className={'start_game'} onClick={this.startGame}>{'START GAME'}</button>
-            : <Timer won={this.state.won}/>
+            : <Timer won={this.state.won} handleFinalTime={this.setFinalTime}/>
           }
         </div>
         <div className="image_container">
