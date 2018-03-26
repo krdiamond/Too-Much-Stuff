@@ -11,6 +11,11 @@
     src: url(fonts/bubblegum.ttf);
 }
 
+@font-face {
+    font-family:'digital';
+    src: url(fonts/digital.ttf);
+}
+
 
 /* ---------------------------- LANDING PAGE -------------------------------- */
 
@@ -63,7 +68,7 @@ a:visited {
 
 .game {
   display: inline-block;
-  width: 1120px;
+  width: 1097px;
   height: 875px;
 }
 
@@ -82,8 +87,8 @@ a:visited {
 
 .mission-item {
   z-index: 3;
-  height: 150px;
-  padding: 0px;
+  height: 130px;
+  padding: 5px;
 }
 
 .winning {
@@ -118,18 +123,12 @@ a:visited {
 
 #mission-box {
   width: 200px;
-  height:200px;
-  /* border: 2px solid #EB4640; */
+  height:520px;
+  /* border: 2px solid red; */
   font-family: 'bubblegum';
   font-size: 22px;
-}
-
-#timer {
-  width: 200px;
-  height:150px;
-  border: 2px solid red;
-  /* font-family: 'bubblegum'; */
-  font-size: 22px;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 .image_container {
@@ -171,10 +170,21 @@ a:visited {
 }
 
 .timer {
+  position: relative;
+  height: 85px;
+  width: 200px;
   background-color: #2473A8;
   font-size: 75px;
-  border-radius: 20px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  font-family: 'digital';
+  display:-webkit-box;
+-webkit-box-pack:center;
+-webkit-box-align:center;
+border-radius: 20px;
+color: white;
 }
+
 
 /* ---------------------------- USERS PAGE ----------------------------------- */
 
