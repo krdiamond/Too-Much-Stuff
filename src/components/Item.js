@@ -9,8 +9,8 @@ class Item extends Component {
   }
 
   divStyle2 = {
-    left: Math.floor(Math.random() * 201),
-    top: Math.floor(Math.random() * 101),
+    left: Math.floor(Math.random() * 251),
+    top: Math.floor(Math.random() * 201),
   }
 
   render() {

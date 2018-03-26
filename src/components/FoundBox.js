@@ -7,7 +7,7 @@ const FoundBox = (props) => {
   return(
     <div id="found-box">
       <div id="inner-box">
-        <ItemList list={props.found} handleClick={props.handleClick} className={'game-status-item'}/>
+        <ItemList list={props.found} handleClick={props.handleClick} className={'found-item'}/>
       </div>
     </div>
   )
