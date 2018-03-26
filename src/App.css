@@ -2,6 +2,7 @@
 .app {
   text-align: center;
   height: 875px;
+  background-color: #f2f2f2;
 }
 
 
@@ -24,7 +25,7 @@
   z-index: 2;
   left:520px;
   top: 302px;
-  background-color: red;
+  background-color: #EB4640;
   border: 3px solid white;
   color: white;
   padding: 10px;
@@ -50,7 +51,7 @@ a:visited {
   z-index: 4;
   left:520px;
   top: 302px;
-  background-color: green;
+  background-color: #43B57B;
   border: 3px solid white;
   color: white;
   padding: 10px;
@@ -112,8 +113,13 @@ a:visited {
 
 #mission-box {
   width: 200px;
+<<<<<<< HEAD
   height:500px;
   /* border: 2px solid red; */
+=======
+  height:200px;
+  /* border: 2px solid #EB4640; */
+>>>>>>> 85727745b3012a76017953e5fa9468263885a9af
   font-family: 'bubblegum';
   font-size: 22px;
 }
@@ -162,6 +168,12 @@ a:visited {
   z-index: 3;
   width: 100px;
   height:100px;
+}
+
+.timer {
+  height: 100px;
+  background-color: #43B57B;
+  font-size: 75px;
 }
 
 /* ---------------------------- USERS PAGE ----------------------------------- */
