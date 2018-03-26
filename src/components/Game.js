@@ -66,12 +66,8 @@ export default class Game extends Component {
 
   render() {
     return(
-      <div className="game">
-        { (!this.state.started) ?
-          <button className={'start_game'} onClick={this.startGame}>{'START GAME'}</button>
-          : null
-        }
-        <div className="game-status">
+      <div id="game">
+        <div id="game-status">
           { (this.state.started) ? <Timer won={this.state.won} handleFinalTime={this.setFinalTime}/>
              : <DummyTimer won={this.state.won} time={this.state.time}/>
           }
@@ -79,7 +75,11 @@ export default class Game extends Component {
           <FoundBox  found={this.state.found} won={this.state.won} user={this.props.currentUser}/>
 
         </div>
-        <div className="image_container">
+        <div id="image_container">
+          { (!this.state.started) ?
+            <button className={'start_game_button'} onClick={this.startGame}>{'START GAME'}</button>
+            : null
+          }
           { (this.state.won) ?
             <div>
               <div className={'winning'}>{`YOU WON ${this.props.currentUser.username.toUpperCase()}!!!!`}</div>

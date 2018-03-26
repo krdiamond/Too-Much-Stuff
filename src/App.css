@@ -1,12 +1,16 @@
 
 .app {
   text-align: center;
+  vertical-align: middle;
   height: 100vh;
   background-color: #f2f2f2;
-  padding-top: 10px;
+  padding-top: 20px;
 
 }
 
+button:focus {
+  outline:0;
+}
 
 @font-face {
     font-family:'bubblegum';
@@ -51,107 +55,64 @@ a:visited {
     color: green;
 }
 
-/* ---------------------------- GAME PAGE ----------------------------------- */
+/* --------------------------- GAME PAGE BUTTON------------------------------ */
 
-.start_game{
-  position: absolute;
-  z-index: 4;
-  left:520px;
-  top: 302px;
+.start_game_button{
+  position: relative;
+  width: 500px;
+  height: 300px;
+  z-index: 1;
   background-color: #43B57B;
-  border: 3px solid white;
+  border: 10px solid #1374a4;
   color: white;
   padding: 10px;
-  text-align: center;
   text-decoration: none;
-  border-radius: 20px;
-  font-size: 30px;
+  border-radius: 60px;
+  font-size: 100px;
+  font-family: 'bubblegum';
+  letter-spacing: 3px;
+  top: 250px;
+  box-shadow: 20px 20px 0px #081c48;
 }
 
-.game {
-  display: inline-block;
-  width: 1165px;
-  height: 895px;
-  border: 2px solid red;
-}
-
-.image_container {
-  background-image: url("images/trash_mountain.jpg");
-  background-repeat: no-repeat;
-  background-size: 100%;
-  height: 891px;
-  width: 891px;
-  display: inline-block;
-  position: relative;
-    border: 2px solid red;
-}
-
-.game-status {
-  float:left;
-  width: 250px;
-  height: 875px;
-  background-color: #23b581;
-  border-top-left-radius: 25px;
-border-bottom-left-radius:25px;
+.start_game_button:active {
+  box-shadow: 5px 5px 0px #081c48;
+  transform: translate(10px,10px);
   border: 10px solid #1374a4;
 }
 
+/* --------------------------- MAIN GAME PAGE ------------------------------- */
 
-
-.found-item {
-  z-index: 3;
-  width: 40px;
-  height:40px;
-  padding: 0px;
+#game {
+  display: inline-block;
+  width: 1171px;
+  height: 895px;
+  /* border: 2px solid red; */
 }
 
-.mission-item {
-  z-index: 3;
-  height: 130px;
-  padding: 5px;
-}
+/* --------------------- GAME PAGE IMAGE AREA ------------------------------- */
 
-.winning {
-  color: #2473A8;
-  font-size: 56px;
-  font-weight: bold;
+.item{
+  position:absolute;
+  height: 100px;
+  width:100px;
 }
-
-.winning-small {
-  color: #2473A8;
-  font-size: 45px;
-  font-weight: bold;
-}
-
-#found-box {
-  background-image: url("images/empty-box.png");
+#image_container {
+  background-image: url("images/trash_mountain.jpg");
   background-repeat: no-repeat;
   background-size: 100%;
-  width: 210px;
-  height:210px;
-  margin-left: auto;
-  margin-right: auto;
-  z-index:2;
-  margin-bottom: 10px;
-  margin-top: 10px;
-}
-
-#inner-box{
+  height: 875px;
+  width: 891px;
+  display: inline-block;
   position: relative;
-  width:80px;
-  height:80px;
-  z-index:3;
-  top:63px;
-  left: 60px;
+  border: 10px solid #1374a4;
+  border-left: 0px;
+  cursor: grab;
 }
 
-#mission-box {
-  /* border: 2px solid red; */
-  font-family: 'bubblegum';
-  font-size: 22px;
+#image_container.active{
+  cursor: grabbing;
 }
-
-
 
 #item-location-1 {
   display: inline-block;
@@ -173,12 +134,57 @@ border-bottom-left-radius:25px;
   /* border: 2px solid red; */
 }
 
+/* ------------------------ GAME STATUS AREA -------------------------------- */
 
-.item {
-  position: absolute;
+#game-status {
+  float:left;
+  width: 250px;
+  height: 875px;
+  background-color: #23b581;
+  border-top-left-radius: 25px;
+border-bottom-left-radius:25px;
+  border: 10px solid #1374a4;
+}
+
+#found-box {
+  background-image: url("images/empty-box.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 210px;
+  height:210px;
+  margin-left: auto;
+  margin-right: auto;
+  z-index:2;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+#inner-found-box{
+  position: relative;
+  width:80px;
+  height:80px;
+  z-index:3;
+  top:63px;
+  left: 60px;
+}
+
+.found-item {
   z-index: 3;
-  width: 100px;
-  height:100px;
+  width: 40px;
+  height:40px;
+  padding: 0px;
+}
+
+#mission-box {
+  /* border: 2px solid red; */
+  font-family: 'bubblegum';
+  font-size: 22px;
+}
+
+.mission-item {
+  z-index: 3;
+  height: 130px;
+  padding: 5px;
 }
 
 .timer {
@@ -191,16 +197,30 @@ border-bottom-left-radius:25px;
   margin-top: 20px;
   font-family: 'digital';
   display:-webkit-box;
--webkit-box-pack:center;
--webkit-box-align:center;
-border-radius: 20px;
-color: white;
-
-    margin-left: auto;
-    margin-right: auto;
-
+  -webkit-box-pack:center;
+  -webkit-box-align:center;
+  border-radius: 20px;
+  color: white;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 8px;
 }
 
+
+/* ----------------------- WINNING  ---------------------------------------- */
+/* -------------------------- WHAT IS THIS FOR I FORGET? -------------------- */
+
+.winning {
+  color: #2473A8;
+  font-size: 56px;
+  font-weight: bold;
+}
+
+.winning-small {
+  color: #2473A8;
+  font-size: 45px;
+  font-weight: bold;
+}
 
 /* ---------------------------- USERS PAGE ----------------------------------- */
 
