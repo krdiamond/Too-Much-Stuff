@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import FoundBox from './FoundBox'
 import MissionBox from './MissionBox'
 import ItemList from './ItemList'
+import DummyTimer from './DummyTimer'
 import Timer from './Timer'
 
 export default class Game extends Component {
@@ -42,12 +43,16 @@ export default class Game extends Component {
   }
 
   render() {
+    console.log("GAME STARTED?", this.state.started)
     return(
       <div className="game">
+        { (!this.state.started) ?
+          <button className={'start_game'} onClick={this.startGame}>{'START GAME'}</button>
+          : null
+        }
         <div className="game-status">
-          { (!this.state.started) ?
-            <button className={'start_game'} onClick={this.startGame}>{'START GAME'}</button>
-            : <Timer won={this.state.won} handleFinalTime={this.setFinalTime}/>
+          { (this.state.started) ? <Timer won={this.state.won} handleFinalTime={this.setFinalTime}/>
+             : <DummyTimer won={this.state.won} time={this.state.time}/>
           }
           <MissionBox  mission={this.state.mission} />
           <FoundBox  found={this.state.found} won={this.state.won} user={this.props.currentUser}/>
@@ -57,7 +62,6 @@ export default class Game extends Component {
           { (this.state.won) ?
             <div>
               <div className={'winning'}>{`YOU WON ${this.props.currentUser.username.toUpperCase()}!!!!`}</div>
-              <div className={'winning-small'}>{`FINAL TIME: ${this.state.time} seconds`}</div>
             </div>
             : null
           }
