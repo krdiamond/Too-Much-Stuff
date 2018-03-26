@@ -10,34 +10,39 @@ export default class Game extends Component {
     imgs: [],
     found: [],
     mission: [],
-    imgsLeft: [],
     won: false,
     time: 0,
     started: false,
+    top: [],
+    bottom: [],
   }
 
   startGame = () => {
     fetch('http://localhost:3000/items')
     .then(res => res.json())
     .then(imgs => {
+      console.log("NUM IMGS:", imgs.length)
       const mission = imgs.slice(0, 3)
-      this.setState({ imgs, mission, imgsLeft: imgs, won: false, found: [], started: true })
+      const rand = Math.floor(Math.random() * (imgs.length - 5))
+      const top = imgs.slice(rand, rand + 6)
+      let bottom = imgs.slice(0, rand)
+      bottom = [...bottom, ...imgs.slice(rand + 6)]
+      this.setState({ imgs, mission, top, bottom, won: false, found: [], started: true })
     })
   }
 
   handleItemClick = (img) => {
     let foundImgs = this.state.found
-    console.log("ITEM CLICKED!!", img)
-    const filteredImgsLeft = this.state.imgsLeft.filter((item) => item !== img)
+    const filteredTopImgsLeft = this.state.top.filter((item) => item.name !== img.name)
+    const filteredBottomImgsLeft = this.state.bottom.filter((item) => item.name !== img.name)
     if (!this.state.found.includes(img) && this.state.mission.includes(img)) foundImgs = [...this.state.found, img]
     const uniqFoundImgs = foundImgs.filter((item, index) => foundImgs.indexOf(item) === index)
-    this.setState({ found: uniqFoundImgs, imgsLeft: filteredImgsLeft}, () => this.handleWin())
+    this.setState({ found: uniqFoundImgs, top: filteredTopImgsLeft, bottom: filteredBottomImgsLeft}, () => this.handleWin())
   }
 
   handleWin = () => {
     if (this.state.mission.length === this.state.found.length) {
       this.setState({ won: true, started: false }, () => {
-        console.log("FINAL TIME:", this.state.time)
         //POST game to /games
         const options = {
           method: 'post',
@@ -84,10 +89,10 @@ export default class Game extends Component {
             : null
           }
           <div id="item-location-1">
-            <ItemList id="location-1" className="item" list={this.state.imgsLeft.slice(0,-6)} handleClick={this.handleItemClick}/>
+            <ItemList id="location-1" className="item" list={this.state.bottom} handleClick={this.handleItemClick}/>
           </div>
           <div id="item-location-2">
-            <ItemList id="location-2" className="item" list={this.state.imgsLeft.slice(-6)} handleClick={this.handleItemClick}/>
+            <ItemList id="location-2" className="item" list={this.state.top} handleClick={this.handleItemClick}/>
           </div>
         </div>
 
