@@ -34,7 +34,7 @@ export default class Timer extends React.Component {
   render() {
     ((this.props.won) ? this.stopTimer() : null )
     return (
-        <div>
+        <div id="timer">
           <p><b>{this.state.seconds} seconds</b></p>
         </div>
       )
