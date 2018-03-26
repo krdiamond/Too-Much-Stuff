@@ -55,7 +55,10 @@ export default class Game extends Component {
         </div>
         <div className="image_container">
           { (this.state.won) ?
-            <div className={'winning'}>{`YOU WON ${this.props.currentUser.username.toUpperCase()}!!!!`}</div>
+            <div>
+              <div className={'winning'}>{`YOU WON ${this.props.currentUser.username.toUpperCase()}!!!!`}</div>
+              <div className={'winning-small'}>{`FINAL TIME: ${this.state.time} seconds`}</div>
+            </div>
             : null
           }
           <div id="item-location-1">

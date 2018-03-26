@@ -87,10 +87,15 @@ a:visited {
 }
 
 .winning {
-  color: blue;
+  color: #2473A8;
   font-size: 56px;
   font-weight: bold;
-  margin: 40px;
+}
+
+.winning-small {
+  color: #2473A8;
+  font-size: 45px;
+  font-weight: bold;
 }
 
 #found-box {
@@ -113,13 +118,8 @@ a:visited {
 
 #mission-box {
   width: 200px;
-<<<<<<< HEAD
-  height:500px;
-  /* border: 2px solid red; */
-=======
   height:200px;
   /* border: 2px solid #EB4640; */
->>>>>>> 85727745b3012a76017953e5fa9468263885a9af
   font-family: 'bubblegum';
   font-size: 22px;
 }
