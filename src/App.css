@@ -176,7 +176,8 @@ a:visited {
   display:-webkit-box;
 -webkit-box-pack:center;
 -webkit-box-align:center;
-border-radius: 20px
+border-radius: 20px;
+color: white;
 }
 
 
