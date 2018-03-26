@@ -6,10 +6,10 @@
 }
 
 
-/* @font-face {
-    font-family: 'bubblegum';
-    src: url(bubblegum.ttf);
-} */
+@font-face {
+    font-family:'bubblegum';
+    src: url(fonts/bubblegum.ttf);
+}
 
 
 /* ---------------------------- LANDING PAGE -------------------------------- */
@@ -73,10 +73,16 @@ a:visited {
   height: 875px;
 }
 
-.game-status-item {
+.found-item {
   z-index: 3;
   width: 40px;
   height:40px;
+  padding: 0px;
+}
+
+.mission-item {
+  z-index: 3;
+  height: 70px;
   padding: 0px;
 }
 
@@ -94,7 +100,6 @@ a:visited {
   width: 200px;
   height:200px;
   z-index:2;
-  /* border: 2px solid red; */
 }
 
 #inner-box{
@@ -104,13 +109,18 @@ a:visited {
   z-index:3;
   top:63px;
   left: 60px;
-  /* border: 2px solid red; */
 }
 
 #mission-box {
   width: 200px;
   height:200px;
+<<<<<<< HEAD
   border: 2px solid #EB4640;
+=======
+  /* border: 2px solid red; */
+  font-family: 'bubblegum';
+  font-size: 22px;
+>>>>>>> 74cd802f5ccd9288ee8a0497eef01bda56234c1a
 }
 
 .image_container {
@@ -130,15 +140,15 @@ a:visited {
   left: 75px;
   height: 475px;
   width:700px;
-  border: 2px solid #EB4640;
+  /* border: 2px solid red; */
 }
 
 #item-location-2 {
   display: inline-block;
   position: absolute;
-  top: 180px;
+  top: 140px;
   left: 250px;
-  height: 200px;
+  height: 250px;
   width:300px;
   /* border: 2px solid red; */
 }
