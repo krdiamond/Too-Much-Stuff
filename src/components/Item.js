@@ -4,8 +4,8 @@ import React, { Component } from 'react';
 class Item extends Component {
 
   divStyle1 = {
-    left: Math.floor(Math.random() * 801),
-    top: Math.floor(Math.random() * 401),
+    left: Math.floor(Math.random() * 501),
+    top: Math.floor(Math.random() * 376),
   }
 
   divStyle2 = {
