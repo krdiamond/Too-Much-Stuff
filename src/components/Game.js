@@ -100,3 +100,10 @@ export default class Game extends Component {
     )
   }
 }
+
+
+// barbie
+// tuba
+// #1 dad mug
+// monopoly piece
+//
