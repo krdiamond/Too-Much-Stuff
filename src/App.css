@@ -158,9 +158,9 @@ a:visited {
 }
 
 .timer {
-  height: 100px;
-  background-color: #43B57B;
+  background-color: #2473A8;
   font-size: 75px;
+  border-radius: 20px;
 }
 
 /* ---------------------------- USERS PAGE ----------------------------------- */
