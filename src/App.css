@@ -58,7 +58,7 @@ a:visited {
 /* --------------------------- GAME PAGE BUTTON------------------------------ */
 
 .start_game_button{
-  position: relative;
+  position: absolute;
   width: 500px;
   height: 300px;
   z-index: 1;
@@ -70,6 +70,7 @@ a:visited {
   font-family: 'bubblegum';
   letter-spacing: 3px;
   top: 250px;
+  left: 175px;
   box-shadow: 20px 20px 0px #081c48;
   line-height: 20px;
   font-size: 20px;
@@ -220,7 +221,7 @@ a:visited {
 }
 
 
-/* ----------------------- WINNING TEXT ON GAME PAGE------------------------- */
+/* ------------------------------ WINNING ----------------------------------- */
 
 .winning {
   color: #2473A8;
