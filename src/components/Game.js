@@ -77,20 +77,23 @@ export default class Game extends Component {
 
         </div>
         <div id="image_container">
+          { (this.state.won) ?
+            <div>
+              <div id="winning">{`YOU WON ${this.props.currentUser.username.toUpperCase()}!!!!`}</div>
+              <img src={fireworks} id="fireworks1" alt="bang bang"/>
+              <img src={fireworks} id="fireworks2" alt="bang bang"/>
+            </div>
+            : null
+          }
+
+
           { (!this.state.started) ?
             <button className={'start_game_button'} onClick={this.startGame}>
               <p id="button-start-game-text">START GAME</p> Search through the junk pile and find the requested items!
             </button>
             : null
           }
-          { (this.state.won) ?
-            <div>
-              <div className={'winning'}>{`YOU WON ${this.props.currentUser.username.toUpperCase()}!!!!`}</div>
-              <img src={fireworks} id="fireworks1" alt="bang bang"/>
-              <img src={fireworks} id="fireworks2" alt="bang bang"/>
-            </div>
-            : null
-          }
+
           <div id="item-location-1">
             <ItemList id="location-1" className="item" list={this.state.bottom} handleClick={this.handleItemClick}/>
           </div>
@@ -109,4 +112,5 @@ export default class Game extends Component {
 // tuba
 // #1 dad mug
 // monopoly piece
+//
 //

@@ -1,27 +1,3 @@
-1.) install react dnd in the terminal for the correct project. (not sure if copy and pasting this works)
-      npm install —-save react-dnd
-      npm install —-save react-dnd-html5-backend
-
-2.) Import Drag and Drop react files into the file in program the handles the click of the item (for us game.js)
-    Export files as well
-      import React, { Component } from 'react'
-      import HTML5Backend from 'react-dnd-html5-backend';
-      import { DragDropContext } from 'react-dnd';
-      class App extends Component {
-        // code here //
-      }
-      export default DragDropContext(HTML5Backend)(App)
-
-3.) On the item to drag (item.js) import drag source
-      import React, { Component } from 'react'
-      import { DragSource } from 'react-dnd';
-
-
-
-
-
-
-
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
