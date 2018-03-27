@@ -3,7 +3,6 @@ import React from 'react';
 class LoginForm extends React.Component {
   state = {
     username: '',
-    password: '',
   };
 
   handleChange = (event) => {
@@ -19,8 +18,6 @@ class LoginForm extends React.Component {
     return(
       <form onSubmit={this.handleSubmit} autoComplete="on">
           <input type="text" value={this.state.value} name={"username"} placeholder={"Enter Username"} onChange={this.handleChange} autoComplete="on"/>
-        <br />
-          <input type="password" value={this.state.value} name={"password"} placeholder={"Enter Password"} onChange={this.handleChange} autoComplete="current-password"/>
         <br />
         <input type="submit" value="Submit" />
       </form>

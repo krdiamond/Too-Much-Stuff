@@ -220,18 +220,11 @@ a:visited {
 }
 
 
-/* ----------------------- WINNING  ---------------------------------------- */
-/* -------------------------- WHAT IS THIS FOR I FORGET? -------------------- */
+/* ----------------------- WINNING TEXT ON GAME PAGE------------------------- */
 
 .winning {
   color: #2473A8;
   font-size: 56px;
-  font-weight: bold;
-}
-
-.winning-small {
-  color: #2473A8;
-  font-size: 45px;
   font-weight: bold;
 }
 
@@ -270,7 +263,6 @@ input[type=submit]:hover {
 .login-form {
     border-radius: 5px;
     padding: 40px;
-    font-size: 30px;
 }
 
 .add-user {
@@ -282,4 +274,8 @@ input[type=submit]:hover {
   text-decoration: none;
   border-radius: 20px;
   font-size: 20px;
+}
+
+#enter-user {
+  font-size: 30px;
 }

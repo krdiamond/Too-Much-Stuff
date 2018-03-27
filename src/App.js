@@ -16,13 +16,14 @@ class App extends Component {
   }
 
   createUser = (newUser) => {
+    console.log(newUser)
     const options = {
       method: 'post',
       headers: {
         "Content-Type": 'application/json',
         Accepts: 'application/json'
       },
-      body: JSON.stringify({ "user": {"username": newUser.username, "password": newUser.password} })
+      body: JSON.stringify({ "user": {"username": newUser.username} })
     }
 
     fetch('http://localhost:3000/users', options)

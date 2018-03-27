@@ -76,16 +76,16 @@ export default class Game extends Component {
 
         </div>
         <div id="image_container">
-          { (!this.state.started) ?
-            <button className={'start_game_button'} onClick={this.startGame}>
-              <p id="button-start-game-text">START GAME</p> Search through the junk pile and find the requested items!
-            </button>
-            : null
-          }
           { (this.state.won) ?
             <div>
               <div className={'winning'}>{`YOU WON ${this.props.currentUser.username.toUpperCase()}!!!!`}</div>
             </div>
+            : null
+          }
+          { (!this.state.started) ?
+            <button className={'start_game_button'} onClick={this.startGame}>
+              <p id="button-start-game-text">START GAME</p> Search through the junk pile and find the requested items!
+            </button>
             : null
           }
           <div id="item-location-1">
