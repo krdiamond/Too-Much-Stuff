@@ -102,6 +102,10 @@ a:visited {
   width:100px;
 }
 
+.item.active{
+    cursor: grabbing;
+}
+
 #image_container {
   background-image: url("images/trash_mountain.jpg");
   background-repeat: no-repeat;
@@ -112,13 +116,9 @@ a:visited {
   position: relative;
   border: 10px solid #1374a4;
   border-left: 0px;
-  cursor: grab;
+  cursor: -webkit-grab;
   border-top-right-radius: 25px;
   border-bottom-right-radius:25px;
-}
-
-#image_container.active{
-  cursor: grabbing;
 }
 
 #item-location-1 {
@@ -226,6 +226,20 @@ a:visited {
   color: #2473A8;
   font-size: 56px;
   font-weight: bold;
+}
+
+.fireworks1{
+  z-index: 1;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+.fireworks2{
+  z-index: 1;
+  position: absolute;
+  top: 0px;
+  right: 0px;
 }
 
 /* ---------------------------- USERS PAGE ----------------------------------- */

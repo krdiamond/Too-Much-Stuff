@@ -4,6 +4,7 @@ import MissionBox from './MissionBox'
 import ItemList from './ItemList'
 import DummyTimer from './DummyTimer'
 import Timer from './Timer'
+import fireworks from '../images/fireworks.gif'
 
 export default class Game extends Component {
   state = {
@@ -22,7 +23,7 @@ export default class Game extends Component {
     .then(res => res.json())
     .then(imgs => {
       console.log("NUM IMGS:", imgs.length)
-      const mission = imgs.slice(0, 3)
+      const mission = imgs.slice(0, 1)
       const rand = Math.floor(Math.random() * (imgs.length - 5))
       const top = imgs.slice(rand, rand + 6)
       let bottom = imgs.slice(0, rand)
@@ -79,6 +80,8 @@ export default class Game extends Component {
           { (this.state.won) ?
             <div>
               <div className={'winning'}>{`YOU WON ${this.props.currentUser.username.toUpperCase()}!!!!`}</div>
+              <img src={fireworks} id="fireworks1" alt="bang bang"/>
+              <img src={fireworks} id="fireworks2" alt="bang bang"/>
             </div>
             : null
           }
