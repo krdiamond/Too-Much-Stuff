@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import LoginForm from './LoginForm'
+import Stuff from '../images/too_much.jpg'
 
 export default class LoginContainer extends Component {
   state = {
@@ -37,13 +38,12 @@ export default class LoginContainer extends Component {
 
   render() {
     return (
-      <div className='login-container'>
-        <div className="login-form">
-          <h1 id="enter-name">WHAT IS YOUR NAME?</h1>
+        <div id="login-form">
+          <img src={Stuff} id="stuff" alt="stuff"/>
+          <div id="login-text">WHAT IS YOUR NAME? </div>
           <LoginForm handleSetUser={this.handleSetUser}/>
           {this.buildAddUserButton()}
         </div>
-      </div>
     )
   }
 }

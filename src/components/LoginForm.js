@@ -17,7 +17,7 @@ class LoginForm extends React.Component {
   render() {
     return(
       <form onSubmit={this.handleSubmit} autoComplete="on">
-          <input type="text" value={this.state.value} name={"username"} placeholder={"Enter Username"} onChange={this.handleChange} autoComplete="on"/>
+          <input type="text" value={this.state.value} name={"username"} placeholder={"Enter Name"} onChange={this.handleChange} autoComplete="on"/>
         <br />
         <input type="submit" value="Submit" />
       </form>

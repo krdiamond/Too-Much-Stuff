@@ -23,7 +23,7 @@ export default class Game extends Component {
     .then(res => res.json())
     .then(imgs => {
       console.log("NUM IMGS:", imgs.length)
-      const mission = imgs.slice(0, 1)
+      const mission = imgs.slice(0, 3)
       const rand = Math.floor(Math.random() * (imgs.length - 5))
       const top = imgs.slice(rand, rand + 6)
       let bottom = imgs.slice(0, rand)
@@ -86,7 +86,6 @@ export default class Game extends Component {
             </div>
             : null
           }
-
 
           { (!this.state.started) ?
             <button className={'start_game_button'} onClick={this.startGame}>

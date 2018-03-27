@@ -62,6 +62,15 @@ a:visited {
 
 /* --------------------------- GAME PAGE BUTTON------------------------------ */
 
+
+#game{
+  position: absolute;
+  margin: auto;
+  left:0px;
+  top:0px;
+  right:0px;
+  bottom:0px;
+}
 .start_game_button{
   position: absolute;
   margin: auto;
@@ -174,7 +183,7 @@ a:visited {
   margin-bottom: 10px;
   margin-top: 10px;
   filter: drop-shadow(5px 5px 5px #222);
-    border: 2px solid red;
+    /* border: 2px solid red; */
 }
 
 #inner-found-box{
@@ -197,7 +206,7 @@ a:visited {
   /* border: 2px solid red; */
   font-family: 'bubblegum';
   font-size: 22px;
-    border: 2px solid red;
+    /* border: 2px solid red; */
 }
 
 .mission-item {
@@ -224,8 +233,8 @@ a:visited {
   margin-left: auto;
   margin-right: auto;
   padding-top: 8px;
-    filter: drop-shadow(5px 5px 5px #222);
-      border: 2px solid red;
+  filter: drop-shadow(5px 5px 5px #222);
+      /* border: 2px solid red; */
 }
 
 
@@ -261,10 +270,33 @@ a:visited {
 
 /* ---------------------------- USERS PAGE ----------------------------------- */
 
-.login-container {
-  background-color: #f2f2f2;
-  height: 100vh;
+
+#login-form{
+  position: absolute;
+  margin: auto;
+  left:0px;
+  top:0px;
+  right:0px;
+  bottom:0px;
+  width: 900px;
+  height:800px;
+  background-color: #43B57B;
+  border: 10px solid #1374a4;
+  border-radius: 80px;
+  padding-top: 30px;
+  padding-top: 30px;
+    filter: drop-shadow(10px 10px 10px #222);
 }
+
+#login-text {
+    font-size: 70px;
+    letter-spacing: 3px;
+    font-family: 'bubblegum';
+    color: white;
+    text-decoration: none;
+    padding: 20px;
+}
+
 
 input {
     width: 60%;
@@ -278,7 +310,7 @@ input {
 
 input[type=submit] {
     width: 60%;
-    background-color: #4CAF50;
+    background-color: #051846;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -288,14 +320,15 @@ input[type=submit] {
 }
 
 input[type=submit]:hover {
-    background-color: #45a049;
+    background-color: #051846;
 }
 
-.login-form {
-    border-radius: 5px;
-    padding: 40px;
+input[type=submit]:active {
+    background-color: #051846;
 }
 
+
+/*
 .add-user {
   background-color: #4CAF50;
   border: 3px solid white;
@@ -305,8 +338,8 @@ input[type=submit]:hover {
   text-decoration: none;
   border-radius: 20px;
   font-size: 20px;
-}
+} */
 
-#enter-user {
+/* #enter-user {
   font-size: 30px;
-}
+} */
