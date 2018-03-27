@@ -3,6 +3,7 @@ import FoundBox from './FoundBox'
 import MissionBox from './MissionBox'
 import ItemList from './ItemList'
 import DummyTimer from './DummyTimer'
+import Leaderboard from './Leaderboard'
 import Timer from './Timer'
 import fireworks from '../images/fireworks.gif'
 
@@ -16,6 +17,7 @@ export default class Game extends Component {
     started: false,
     top: [],
     bottom: [],
+    leaderboard: false,
   }
 
   startGame = () => {
@@ -23,7 +25,7 @@ export default class Game extends Component {
     .then(res => res.json())
     .then(imgs => {
       console.log("NUM IMGS:", imgs.length)
-      const mission = imgs.slice(0, 1)
+      const mission = imgs.slice(0, 3)
       const rand = Math.floor(Math.random() * (imgs.length - 5))
       const top = imgs.slice(rand, rand + 6)
       let bottom = imgs.slice(0, rand)
@@ -62,6 +64,14 @@ export default class Game extends Component {
     )}
   }
 
+  showLeaderboard = () => {
+    this.setState({leaderboard: true})
+  }
+
+  hideLeaderboard = () => {
+    this.setState({leaderboard: false})
+  }
+
   setFinalTime = (seconds) => {
     this.setState({time: seconds})
   }
@@ -80,18 +90,25 @@ export default class Game extends Component {
         <div id="image_container">
           { (this.state.won) ?
             <div>
-              <div id="winning">{`YOU WON ${this.props.currentUser.username.toUpperCase()}!!!!`}</div>
+              <div id="winning">{`YOU WON, ${this.props.currentUser.username.toUpperCase()}!!!!`}</div>
               <img src={fireworks} id="fireworks1" alt="bang bang"/>
               <img src={fireworks} id="fireworks2" alt="bang bang"/>
             </div>
             : null
           }
 
-
-          { (!this.state.started) ?
-            <button className={'start_game_button'} onClick={this.startGame}>
-              <p id="button-start-game-text">START GAME</p> Search through the junk pile and find the requested items!
-            </button>
+          { (!this.props.started) ?
+            ((this.state.leaderboard) ?
+            <Leaderboard handleBack={this.hideLeaderboard}/>
+            :
+            <div className="buttons-area">
+              <button className={'game_button'} onClick={this.props.startGame}>
+                <p id="button-start-game-text">START GAME</p> Search through the junk pile and find the requested items!
+              </button>
+              <button className={'game_button'} onClick={this.showLeaderboard}>
+                <p id="button-start-game-text">LEADERBOARD</p>
+              </button>
+            </div>)
             : null
           }
 
