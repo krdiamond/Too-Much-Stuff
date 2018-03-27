@@ -22,6 +22,11 @@ button:focus {
     src: url(fonts/digital.ttf);
 }
 
+@font-face {
+    font-family:'space';
+    src: url(fonts/space.otf);
+}
+
 
 /* ---------------------------- LANDING PAGE -------------------------------- */
 
@@ -59,6 +64,11 @@ a:visited {
 
 .start_game_button{
   position: absolute;
+  margin: auto;
+  left:0px;
+  top:0px;
+  right:0px;
+  bottom:0px;
   width: 500px;
   height: 300px;
   z-index: 1;
@@ -69,8 +79,6 @@ a:visited {
   border-radius: 60px;
   font-family: 'bubblegum';
   letter-spacing: 3px;
-  top: 250px;
-  left: 195px;
   box-shadow: 20px 20px 0px #081c48;
   line-height: 20px;
   font-size: 20px;
@@ -221,22 +229,30 @@ a:visited {
 }
 
 
-/* ------------------------------ WINNING ----------------------------------- */
+/* ----------------------- WINNING  ---------------------------------------- */
 
-.winning {
-  color: #2473A8;
-  font-size: 56px;
+#winning {
+  position:relative;
+    z-index: 2;
+    margin-top:50px;
+  height: 172px;
+  width: 891px;
+  color: #051846;
+  font-size: 90px;
   font-weight: bold;
+  font-family: 'space';
+  /* border: 2px solid red; */
 }
 
-.fireworks1{
+#fireworks1{
   z-index: 1;
   position: absolute;
   top: 0px;
   left: 0px;
+  width: 300px;
 }
 
-.fireworks2{
+#fireworks2{
   z-index: 1;
   position: absolute;
   top: 0px;
