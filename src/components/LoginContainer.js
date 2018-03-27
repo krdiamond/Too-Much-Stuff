@@ -39,7 +39,7 @@ export default class LoginContainer extends Component {
     return (
       <div className='login-container'>
         <div className="login-form">
-          <h1>LOG IN</h1>
+          <h1 id="enter-name">WHAT IS YOUR NAME?</h1>
           <LoginForm handleSetUser={this.handleSetUser}/>
           {this.buildAddUserButton()}
         </div>

@@ -294,7 +294,6 @@ input[type=submit]:hover {
 .login-form {
     border-radius: 5px;
     padding: 40px;
-    font-size: 30px;
 }
 
 .add-user {
@@ -306,4 +305,8 @@ input[type=submit]:hover {
   text-decoration: none;
   border-radius: 20px;
   font-size: 20px;
+}
+
+#enter-user {
+  font-size: 30px;
 }

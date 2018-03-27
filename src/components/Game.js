@@ -44,6 +44,7 @@ export default class Game extends Component {
   handleWin = () => {
     if (this.state.mission.length === this.state.found.length) {
       this.setState({ won: true, started: false }, () => {
+        console.log("GAME STARTED?", this.state.started)
         //POST game to /games
         const options = {
           method: 'post',
