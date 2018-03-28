@@ -35,12 +35,12 @@ export default class Leaderboard extends React.Component {
                 {this.state.leaders.map((leader, index) => {
                   return (
                   (index === (this.state.leaders.length - 1)) ?
-                    <div className='row'>
+                    <div key={index} className='row'>
                       <div className="column cell bottom left">{leader.username}</div>
                       <div className="column cell bottom right">{leader.time}</div>
                     </div>
                   :
-                    <div className='row'>
+                    <div key={index} className='row'>
                       <div className="column cell">{leader.username}</div>
                       <div className="column cell">{leader.time}</div>
                     </div>

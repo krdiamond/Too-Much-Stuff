@@ -21,6 +21,7 @@ export default class Game extends Component {
   }
 
   startGame = () => {
+    console.log("STARTING GAME")
     fetch('http://localhost:3000/items')
     .then(res => res.json())
     .then(imgs => {
@@ -97,15 +98,15 @@ export default class Game extends Component {
             : null
           }
 
-          { (!this.props.started) ?
+          { (!this.state.started) ?
             ((this.state.leaderboard) ?
             <Leaderboard handleBack={this.hideLeaderboard}/>
             :
             <div className="buttons-area">
-              <button className={'game_button'} onClick={this.props.startGame}>
-                <p id="button-start-game-text">START GAME</p> Search through the junk pile and find the requested items!
+              <button className={'game_button'} id={"start"} onClick={this.startGame}>
+                <p id="button-start-game-text">START GAME</p> Find the items!
               </button>
-              <button className={'game_button'} onClick={this.showLeaderboard}>
+              <button className={'game_button'} id={"leaderboard"} onClick={this.showLeaderboard}>
                 <p id="button-start-game-text">LEADERBOARD</p>
               </button>
             </div>)
