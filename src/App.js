@@ -41,7 +41,7 @@ class App extends Component {
             this.state.currentUser ? (
               <Redirect to="/game"/>
             ) : (
-              <Landing handleSetUser={this.setUser}/>
+              <Landing handleSetUser={this.setUser} handleAddUser={this.createUser}/>
             )
           )}/>
         <Route exact path="/game" render={() => (

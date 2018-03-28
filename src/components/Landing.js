@@ -29,8 +29,8 @@ export default class Landing extends Component {
     // if userExists is not true, display button to add new user
     if (!this.state.userExists) {
       return  (<div>
-                <p style={{color: 'red', fontSize: '12px'}}>User does not exist. Would you like to add this user?</p>
-                <button className={'add-user'} type="button" onClick={() => this.props.handleAddUser(this.state.loginUser)}>Add New User</button>
+                <p id={"does-not-exist"}>User does not exist. Would you like to add this user?</p>
+                <button id={'add-user'} type="button" onClick={() => this.props.handleAddUser(this.state.loginUser)}>Add New User</button>
               </div>
             )
     }
