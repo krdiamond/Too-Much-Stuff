@@ -109,6 +109,7 @@ export default class Game extends Component {
               <button className={'game_button'} id={"leaderboard"} onClick={this.showLeaderboard}>
                 <p id="button-start-game-text">LEADERBOARD</p>
               </button>
+              <button id={'change-player'} onClick={this.props.handleChangePlayer}>Change Player</button>
             </div>)
             : null
           }
