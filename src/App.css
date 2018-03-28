@@ -13,18 +13,18 @@ button:focus {
 }
 
 @font-face {
-    font-family:'bubblegum';
-    src: url(fonts/bubblegum.ttf);
+  font-family:'bubblegum';
+  src: url(fonts/bubblegum.ttf);
 }
 
 @font-face {
-    font-family:'digital';
-    src: url(fonts/digital.ttf);
+  font-family:'digital';
+  src: url(fonts/digital.ttf);
 }
 
 @font-face {
-    font-family:'space';
-    src: url(fonts/space.otf);
+  font-family:'space';
+  src: url(fonts/space.otf);
 }
 
 
@@ -57,7 +57,7 @@ a {
 }
 
 a:visited {
-    color: green;
+  color: green;
 }
 
 /* --------------------------- GAME PAGE BUTTON------------------------------ */
@@ -153,7 +153,7 @@ a:visited {
 }
 
 .item.active{
-    cursor: grabbing;
+  cursor: grabbing;
 }
 
 #image_container {
@@ -215,7 +215,7 @@ a:visited {
   margin-bottom: 10px;
   margin-top: 10px;
   filter: drop-shadow(5px 5px 5px #222);
-    /* border: 2px solid red; */
+  /* border: 2px solid red; */
 }
 
 #inner-found-box{
@@ -238,7 +238,7 @@ a:visited {
   /* border: 2px solid red; */
   font-family: 'bubblegum';
   font-size: 22px;
-    /* border: 2px solid red; */
+  /* border: 2px solid red; */
 }
 
 .mission-item {
@@ -266,7 +266,7 @@ a:visited {
   margin-right: auto;
   padding-top: 8px;
   filter: drop-shadow(5px 5px 5px #222);
-      /* border: 2px solid red; */
+  /* border: 2px solid red; */
 }
 
 
@@ -274,9 +274,9 @@ a:visited {
 
 #winning {
   position:relative;
-    z-index: 2;
-    margin-top:50px;
-  height: 172px;
+  z-index: 2;
+  margin-top:35px;
+  height: 0px;
   width: 891px;
   color: #051846;
   font-size: 87px;
@@ -317,47 +317,47 @@ a:visited {
   border-radius: 80px;
   padding-top: 30px;
   padding-top: 30px;
-    filter: drop-shadow(10px 10px 10px #222);
+  filter: drop-shadow(10px 10px 10px #222);
 }
 
 #login-text {
-    font-size: 70px;
-    letter-spacing: 3px;
-    font-family: 'bubblegum';
-    color: white;
-    text-decoration: none;
-    padding: 20px;
+  font-size: 70px;
+  letter-spacing: 3px;
+  font-family: 'bubblegum';
+  color: white;
+  text-decoration: none;
+  padding: 20px;
 }
 
 
 input {
-    width: 60%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 24px;
-    box-sizing: border-box;
-    height: 60px;
+  width: 60%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 24px;
+  box-sizing: border-box;
+  height: 60px;
 }
 
 input[type=submit] {
-    width: 60%;
-    background-color: #051846;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 24px;
-    cursor: pointer;
+  width: 60%;
+  background-color: #051846;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 24px;
+  cursor: pointer;
 }
 
 input[type=submit]:hover {
-    background-color: #051846;
+  background-color: #051846;
 }
 
 input[type=submit]:active {
-    background-color: #051846;
+  background-color: #051846;
 }
 
 #stuff {
@@ -365,18 +365,18 @@ input[type=submit]:active {
 }
 /*
 .add-user {
-  background-color: #4CAF50;
-  border: 3px solid white;
-  color: white;
-  padding: 10px;
-  text-align: center;
-  text-decoration: none;
-  border-radius: 20px;
-  font-size: 20px;
+background-color: #4CAF50;
+border: 3px solid white;
+color: white;
+padding: 10px;
+text-align: center;
+text-decoration: none;
+border-radius: 20px;
+font-size: 20px;
 } */
 
 /* #enter-user {
-  font-size: 30px;
+font-size: 30px;
 }
 
 /* ------------------------- LEADERBOARD PAGE ------------------------------- */
@@ -419,13 +419,13 @@ input[type=submit]:active {
 }
 
 .column {
-    float: left;
-    width: 300px;
-    padding: 10px;
-    border-left: 3px solid white;
-    border-right: 3px solid white;
-    border-top: 3px solid white;
-    border-bottom: 3px solid white;
+  float: left;
+  width: 300px;
+  padding: 10px;
+  border-left: 3px solid white;
+  border-right: 3px solid white;
+  border-top: 3px solid white;
+  border-bottom: 3px solid white;
 }
 
 .header {
@@ -441,9 +441,9 @@ input[type=submit]:active {
 
 /* Clear floats after the columns */
 .row:after {
-    content: "";
-    display: table;
-    clear: both;
+  content: "";
+  display: table;
+  clear: both;
 }
 
 #left {
