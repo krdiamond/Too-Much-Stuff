@@ -1,14 +1,16 @@
 import React from 'react';
 import ItemList from './ItemList'
 
-const FoundBox = (props) => {
-  return(
-    <div id="found-box">
-      <div id="inner-found-box">
-        <ItemList list={props.found} handleClick={props.handleClick} className={'found-item'}/>
+class FoundBox extends React.Component {
+  render() {
+    return(
+      <div id="found-box">
+        <div id="inner-found-box">
+          <ItemList list={this.props.found} className={'found-item'}/>
+        </div>
       </div>
-    </div>
-  )
+    )
+  }
 }
 
 export default FoundBox;

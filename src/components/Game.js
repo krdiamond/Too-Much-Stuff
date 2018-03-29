@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import FoundBox from './FoundBox'
 import MissionBox from './MissionBox'
 import ItemList from './ItemList'
@@ -18,6 +19,16 @@ export default class Game extends Component {
     top: [],
     bottom: [],
     leaderboard: false,
+    foundBoxPosition: null,
+  }
+
+  componentDidMount() {
+    const position = (
+      ReactDOM
+        .findDOMNode(this.refs['found'])
+        .getBoundingClientRect()
+   )
+   this.setState({foundBoxPosition: position}, () => console.log("GAME STATE:", this.state))
   }
 
   startGame = () => {
@@ -25,15 +36,50 @@ export default class Game extends Component {
     fetch('http://localhost:3000/items')
     .then(res => res.json())
     .then(imgs => {
-      console.log("NUM IMGS:", imgs.length)
+      console.log("imgs fetch:", imgs)
       const mission = imgs.slice(0, 3)
       const rand = Math.floor(Math.random() * (imgs.length - 5))
       const top = imgs.slice(rand, rand + 6)
       let bottom = imgs.slice(0, rand)
       bottom = [...bottom, ...imgs.slice(rand + 6)]
-      this.setState({ imgs, mission, top, bottom, won: false, found: [], started: true })
+      // add coordinates to top and bottom arrays
+      const topWithCoords = this.buildImgCoordinates(top, "top")
+      const bottomWithCoords = this.buildImgCoordinates(bottom, "bottom")
+      const allImgs = [...topWithCoords, ...bottomWithCoords]
+      this.setState({ imgs: allImgs, mission, top, bottom, won: false, found: [], started: true })
     })
   }
+
+  buildImgCoordinates = (list, listType) => {
+    return list.map((img) => ({...img, ...this.getCoordinates(listType)}) )
+  }
+
+  getCoordinates = (listType) => {
+    let divStyle1 = {
+      x: Math.floor(Math.random() * 251),
+      y: Math.floor(Math.random() * 201),
+    }
+
+    let divStyle2 = {
+      x: Math.floor(Math.random() * 501),
+      y: Math.floor(Math.random() * 376),
+    }
+
+    return listType === "top" ? divStyle1 : divStyle2
+  }
+
+  findTheMovingItemOnMouseDown = (e, id) => {
+    // find item with matching id
+    const item = this.state.imgs.find(item => item.id === id)
+    const index = this.state.imgs.indexOf(item)
+
+    this.setState({
+      oldMouseX: e.clientX,
+      oldMouseY: e.clientY,
+      holdIndex: index,
+    });
+  }
+
 
   handleItemClick = (img) => {
     let foundImgs = this.state.found
@@ -84,8 +130,8 @@ export default class Game extends Component {
           { (this.state.started) ? <Timer won={this.state.won} handleFinalTime={this.setFinalTime}/>
              : <DummyTimer won={this.state.won} time={this.state.time}/>
           }
+          <FoundBox  ref={"found"} found={this.state.found} won={this.state.won} user={this.props.currentUser}/>
           <MissionBox  mission={this.state.mission} />
-          <FoundBox  found={this.state.found} won={this.state.won} user={this.props.currentUser}/>
 
         </div>
         <div id="image_container">
@@ -115,10 +161,10 @@ export default class Game extends Component {
           }
 
           <div id="item-location-1">
-            <ItemList id="location-1" className="item" list={this.state.bottom} handleClick={this.handleItemClick}/>
+            <ItemList id="location-1" className="item" list={this.state.top} findTheMovingItem={this.findTheMovingItemOnMouseDown}/>
           </div>
           <div id="item-location-2">
-            <ItemList id="location-2" className="item" list={this.state.top} handleClick={this.handleItemClick}/>
+            <ItemList id="location-2" className="item" list={this.state.bottom} findTheMovingItem={this.findTheMovingItemOnMouseDown}/>
           </div>
         </div>
 
