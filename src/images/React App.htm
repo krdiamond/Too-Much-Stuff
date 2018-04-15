@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<!-- saved from url=(0026)http://localhost:3000/play -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+    <!--
+      manifest.json provides metadata used when your web app is added to the
+      homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
+    -->
+    <link rel="manifest" href="http://localhost:3000/manifest.json">
+    <link rel="shortcut icon" href="http://localhost:3000/favicon.ico">
+    <!--
+      Notice the use of  in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>React App</title>
+  <style type="text/css">
+/* -------------------------------- GENERAL --------------------------------- */
+
+#app {
+  text-align: center;
+  border: 2px solid red;
+}
+
+.main_container {
+  display: inline-block;
+  position: relative;
+  /* border: 2px solid red; */
+}
+
+/* -------------------------- LANDING PAGE CONTAINER ------------------------ */
+
+/* ---------------------------- GENERAL GAME PLAY --------------------------- */
+
+.traverse_rooms {
+    position: absolute;
+    z-index: 2;
+}
+
+/* --------------------------------- PURSE ---------------------------------- */
+#purse_container {
+  position: absolute;
+  width:150px;
+  right:0px;
+  top: 0px;
+  z-index: 2;
+  margin: 20px;
+  height: 200px;
+  /* border: 6px solid purple; */
+}
+
+#purse_contents {
+  background: white;
+  width: 150PX;
+  height: 645px;
+}
+
+.cell {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  z-index: 10;
+  margin:10px;
+      border: 6px solid purple;
+}
+
+.moon {
+    position: absolute;
+    z-index: -100;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    margin: auto;
+    border: 6px solid purple;
+}
+
+#clearbox {
+  width:120px;
+  height:120px;
+}
+
+#position_text{
+      position: absolute;
+    border: 6px solid purple;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    color:white;
+}
+
+/* --------------------------------- PHONE ---------------------------------- */
+#blinking_message_dot {
+  position: absolute;
+  left:325px;
+  top:70px;
+}
+
+#phone_container{
+  z-index: 3;
+  position: absolute;
+  width:400px;
+  height:400px;
+  margin: auto;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+}
+
+#phone_message{
+    border: 6px solid purple;
+    background-color: white;
+}
+
+#close_phone{
+  background-color:white;
+}
+
+.phone_button {
+  position: absolute;
+  background-color: white;
+  height: 50px;
+  width: 80px;
+  padding-top: 10px;
+  top: 100px;
+
+}
+
+#call_police {
+  left: 207px;
+}
+
+#call_allison {
+  left: 295px;
+}
+
+#police_message {
+  position: absolute;
+  background-color: white;
+  top: 100px;
+  left: 420px;
+  height: 170px;
+  width: 210px;
+}
+
+#people_container{
+  position: absolute;
+  left: 187px;
+  top: 160px;
+  /* border: 6px solid purple; */
+}
+
+#each_person{
+  background-color: white;
+  height: 20px;
+  width: 91px;
+  padding: 5px;
+  margin-top:10px;
+  margin-bottom:10px;
+  /* border: 6px solid purple; */
+}
+
+#each_suspicious_item_container {
+  position: absolute;
+  left: 295px;
+  top: 160px;
+}
+
+#each_suspicious_item{
+  background-color: white;
+  height: 20px;
+  width: 91px;
+  padding: 5px;
+  margin-top:10px;
+  margin-bottom:10px;
+  /* border: 6px solid purple; */
+}
+
+#allison_message{
+  left: 227px;
+  top: 180px;
+  width: 400px;
+  background-color:white;
+}
+
+
+
+/* ------------------------------ TELEVISION --------------------------------- */
+
+#tv_container {
+  position: absolute;
+  width: 125px;
+  height: 130px;
+  top: 155px;
+  left: 15px;
+}
+
+
+/* ------------------------------- START GAME ------------------------------- */
+
+#start_button{
+  position: absolute;
+  left: 0px;
+  font-size: 24px;
+}
+</style><style type="text/css">/* -------------------------- NAVIGATE TO ROOM 2 ---------------------------- */
+
+#room1_go_to_room_2{
+  position: absolute;
+  top: 150px;
+  left: 350px;
+  width: 150px;
+  height: 300px;
+  /* border: 6px solid purple; */
+}
+
+#room1_go_to_room_2:hover{
+  cursor: url(/static/media/right_arrow.34feadec.png) 80 30,auto;
+}
+
+ #room1_go_to_room_2_text {
+  width: 100px;
+  visibility: hidden;
+  background-color: black;
+  color: #fff;
+  border-radius: 6px;
+  padding: 5px 0;
+ }
+
+ #room1_go_to_room_2:hover #room1_go_to_room_2_text  {
+   visibility: visible;
+ }
+
+/* -------------------------- NAVIGATE TO ROOM 4 ---------------------------- */
+
+ #room1_go_to_room_4{
+   position: absolute;
+   bottom: 0px;
+   left: 10px;
+   width: 150px;
+   height: 250px;
+   /* border: 6px solid purple; */
+ }
+
+ #room1_go_to_room_4:hover{
+   cursor: url(/static/media/down_arrow.7ccb1ec0.png)30 80 ,auto;
+ }
+
+  #room1_go_to_room_4_text {
+   width: 150px;
+   visibility: hidden;
+   background-color: black;
+   color: #fff;
+   border-radius: 6px;
+   padding: 5px 0;
+  }
+
+  #room1_go_to_room_4:hover #room1_go_to_room_4_text  {
+    visibility: visible;
+  }
+
+ /* ----------------------------- OPENING STORY ----------------------------- */
+
+.story {
+  position: absolute;
+  background: black;
+  color: white;
+  width: 900px;
+}
+
+ #opening_story {
+   top: 0px;
+   height:100px;
+ }
+
+ #show_story {
+   top: 0px;
+ }
+
+/* ---------------------------------- PHONE --------------------------------- */
+
+#room1phone {
+  position: absolute;
+  top: 350px;
+  left: 140px;
+  width: 70px;
+  height: 30px;
+  /* border: 6px solid green; */
+}
+
+
+/* ----------------------------- KELLYS UNIFORM ----------------------------- */
+
+#jacket {
+  position: absolute;
+  /* border: 3px solid green; */
+  width: 50px;
+  height: 170px;
+  top: 200px;
+  left: 525px;
+}
+
+/* ---------------------------------- NOTE ---------------------------------- */
+
+#crumpled_note{
+  position: absolute;
+  bottom: 150px;
+  right: 400px;
+}
+
+#jessicas_note {
+  position: absolute;
+  height:210px;
+  width: 200px;
+  z-index: 3;
+  background-color:white;
+}
+
+#text {
+  top: 10px;
+  width: 150px;
+  height: 150px;
+  margin: auto;
+  left: 10px;
+}
+
+/* --------------------------------- HEART ---------------------------------- */
+
+#heart {
+  position: absolute;
+  height: 25px;
+  width: 25px;
+  top: 400px;
+  right: 120px;
+}
+
+#heart_award {
+  position: absolute;
+  top: 450px;
+  right: 0px;
+  width: 180px;
+  height: 180px;
+  border: 6px solid purple;
+  background-color:white;
+}
+</style><style type="text/css">/* -------------------------- NAVIGATE TO ROOM 1 ---------------------------- */
+
+#room2_go_to_room_1{
+  position: absolute;
+  top: 150px;
+  left: 214px;
+  width: 100px;
+  height: 250px;
+  /* border: 6px solid purple; */
+}
+
+#room2_go_to_room_1:hover{
+  cursor: url(/static/media/left_arrow.72b1ca2a.png) 30 30,auto;
+}
+
+ #room2_go_to_room_1_text {
+  /* width: 100px; */
+  visibility: hidden;
+  background-color: black;
+  color: #fff;
+  border-radius: 6px;
+  padding: 5px 0;
+ }
+
+ #room2_go_to_room_1:hover #room2_go_to_room_1_text  {
+   visibility: visible;
+ }
+
+/* -------------------------- NAVIGATE TO ROOM 3 ---------------------------- */
+
+#room2_go_to_room_3{
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  width: 300px;
+  height: 90px;
+  /* border: 6px solid purple; */
+}
+
+#room2_go_to_room_3:hover{
+  cursor: url(/static/media/straight_down_arrow.3e93087e.png) 50 80,auto;
+}
+
+ #room2_go_to_room_3_text {
+  width: 100px;
+  visibility: hidden;
+  background-color: black;
+  color: #fff;
+  border-radius: 6px;
+  padding: 5px 0;
+ }
+
+ #room2_go_to_room_3:hover #room2_go_to_room_3_text  {
+   visibility: visible;
+ }
+
+/* --------------------------------- TENNIS --------------------------------- */
+
+#tennis_racket {
+  position: absolute;
+  /* border: 3px solid green; */
+  width: 150px;
+  height: 100px;
+  bottom: 110px;
+  left: 500px;
+}
+
+#racket_message {
+  position: absolute;
+  border: 6px solid purple;
+  width: 200px;
+  height: 170px;
+  bottom: 210px;
+  left: 500px;
+}
+/* ----------------------------------- BED ---------------------------------- */
+
+#bed {
+  position: absolute;
+  /* border: 3px solid green; */
+  width: 400px;
+  height: 300px;
+  bottom: 300px;
+  right: 0px;
+}
+
+#bed_message {
+  position: absolute;
+  border: 6px solid purple;
+  width: 200px;
+  height: 170px;
+  bottom: 210px;
+  left: 500px;
+    background-color:white;
+}
+</style><style type="text/css">/* -------------------------- NAVIGATE TO ROOM 2 ---------------------------- */
+
+#room3_go_to_room_2{
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100px;
+  height: 280px;
+  /* border: 6px solid purple; */
+}
+
+#room3_go_to_room_2:hover{
+  cursor: url(/static/media/straight_left_arrow.5172021b.png) 10 50,auto;
+}
+
+ #room3_go_to_room_2_text {
+  width: 100px;
+  visibility: hidden;
+  background-color: black;
+  color: #fff;
+  border-radius: 6px;
+  padding: 5px 0;
+ }
+
+ #room3_go_to_room_2:hover #room3_go_to_room_2_text  {
+   visibility: visible;
+ }
+
+
+/* ------------------------------- CLOTHES  --------------------------------- */
+
+#clothes {
+  position: absolute;
+  /* border: 3px solid green; */
+  width: 120px;
+  height: 120px;
+  bottom: 100px;
+  left: 650px;
+}
+
+#shoes {
+  position: absolute;
+  /* border: 3px solid green; */
+  width: 150px;
+  height: 80px;
+  bottom: 50px;
+  left: 700px;
+}
+
+#clothes_message {
+  position: absolute;
+  border: 6px solid purple;
+  width: 200px;
+  height: 80px;
+  bottom: 210px;
+  left: 500px;
+    background-color:white;
+}
+
+/* -------------------------------- SNAKE  ---------------------------------- */
+
+#snake {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  bottom: 230px;
+  left: 150px;
+  /* border: 6px solid purple; */
+}
+
+.snake_message {
+  position: absolute;
+  width: 250px;
+  height: 120px;
+  bottom: 330px;
+  left: 150px;
+  background-color: white;
+}
+</style><style type="text/css">/* -------------------------- NAVIGATE TO ROOM 5 ---------------------------- */
+
+#room4_go_to_room_5{
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  width: 250px;
+  height: 160px;
+  /* border: 6px solid purple; */
+}
+
+#room4_go_to_room_5:hover{
+  cursor: url(/static/media/diagonal_right_arrow.73353cf1.png) 80 10,auto;
+}
+
+ #room4_go_to_room_5_text {
+  width: 100px;
+  visibility: hidden;
+  background-color: black;
+  color: #fff;
+  border-radius: 6px;
+  padding: 5px 0;
+ }
+
+ #room4_go_to_room_5:hover #room4_go_to_room_5_text  {
+   visibility: visible;
+ }
+
+ /* -------------------------- NAVIGATE TO ROOM 1 ---------------------------- */
+
+ #room4_go_to_room_1{
+   position: absolute;
+   bottom: 0px;
+   left: 10px;
+   width: 180px;
+   height: 300px;
+   /* border: 6px solid purple; */
+ }
+
+ #room4_go_to_room_1:hover{
+   cursor: url(/static/media/down_left_arrow.a3007c9e.png) 10 30,auto;
+ }
+
+  #room4_go_to_room_1_text {
+   width: 100px;
+   visibility: hidden;
+   background-color: black;
+   color: #fff;
+   border-radius: 6px;
+   padding: 5px 0;
+  }
+
+  #room4_go_to_room_1:hover #room4_go_to_room_1_text  {
+    visibility: visible;
+  }
+
+/* -------------------------------- JESSICA -------------------------------- */
+
+#jessica {
+  position: absolute;
+  width: 60px;
+  height: 140px;
+  bottom: 330px;
+  left: 390px;
+}
+
+.jessicas_message {
+  position: absolute;
+  /* border: 6px solid purple; */
+  bottom: 510px;
+  left: 500px;
+  width: 200px;
+    background-color:white;
+}
+
+#knees {
+  position: absolute;
+  bottom: 240px;
+  left: 430px;
+  width: 80px;
+  height: 60px;
+}
+
+#cell_phone {
+  position: absolute;
+  bottom: 370px;
+  left: 490px;
+  width: 40px;
+  height: 60px;
+}
+
+/* --------------------------------- PLANT ---------------------------------- */
+
+#plant {
+  position: absolute;
+  bottom: 230px;
+  right: 120px;
+  width: 80px;
+  height: 140px;
+}
+
+/* --------------------------------- PHONE ---------------------------------- */
+#room4phone {
+  position: absolute;
+  top: 435px;
+  left: 30px;
+  width: 60px;
+  height: 140px;
+  /* border: 6px solid green; */
+}
+
+
+/* -------------------------- PHONE NUMBER NOTE ------------------------------ */
+
+#phone_number {
+  position: absolute;
+  border: 6px solid purple;
+  width: 200px;
+  z-index: 3;
+  background-color:white;
+}
+
+#room4crumpled_note{
+  position: absolute;
+  top: 700px;
+  left: 750px;
+  /* border: 6px solid green; */
+}
+</style><style type="text/css">/* -------------------------- NAVIGATE TO ROOM 4 ---------------------------- */
+
+#room5_go_to_room_4{
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  width: 250px;
+  height: 200px;
+  /* border: 6px solid purple; */
+}
+
+#room5_go_to_room_4:hover{
+  cursor: url(/static/media/diagonal_left_arrow.21ec3ddc.png) 10 80,auto;
+}
+
+ #room5_go_to_room_4_text {
+  width: 100px;
+  visibility: hidden;
+  background-color: black;
+  color: #fff;
+  border-radius: 6px;
+  padding: 5px 0;
+ }
+
+ #room5_go_to_room_4:hover #room5_go_to_room_4_text  {
+   visibility: visible;
+ }
+
+/* -------------------------- NAVIGATE TO ROOM 6 ---------------------------- */
+
+#room5_go_to_room_6{
+  position: absolute;
+  top: 50px;
+  left: 300px;
+  width: 150px;
+  height: 250px;
+  /* border: 6px solid purple; */
+}
+
+#room5_go_to_room_6:hover{
+  cursor: url(/static/media/right_arrow.34feadec.png) 80 30,auto;
+}
+
+ #room5_go_to_room_6_text {
+  width: 150px;
+  visibility: hidden;
+  background-color: black;
+  color: #fff;
+  border-radius: 6px;
+  padding: 5px 0;
+ }
+
+ #room5_go_to_room_6:hover #room5_go_to_room_6_text  {
+   visibility: visible;
+ }
+
+/* ---------------------------- TENNIS RACKET ------------------------------- */
+
+#jess_tennis_racket{
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: 320px;
+  right: 620px;
+}
+
+#tennis_message {
+  position: absolute;
+  /* border: 3px solid green; */
+  width: 150px;
+  height: 120px;
+  top: 220px;
+  right: 650px;
+    background-color:white;
+}
+
+/* -------------------------------- SHOES ----------------------------------- */
+
+#jess_shoes{
+  position: absolute;
+  width: 80px;
+  height: 50px;
+  top: 300px;
+  right: 540px;
+}
+
+#shoe_message {
+  position: absolute;
+  width: 150px;
+  height: 120px;
+  top: 220px;
+  right: 650px;
+    background-color:white;
+}
+
+/* ------------------------------ ASHTRAY ----------------------------------- */
+
+#jess_ashtray {
+  position: absolute;
+  /* border: 3px solid green; */
+  width: 40px;
+  height: 50px;
+  bottom: 220px;
+  left: 130px;
+}
+
+#ashtray_message {
+  position: absolute;
+  border: 3px solid green;
+  width: 150px;
+  height: 120px;
+  top: 520px;
+  right: 650px;
+    background-color:white;
+}
+
+/* ------------------------------ KEYS ----------------------------------- */
+
+#keys {
+  position: absolute;
+  height: 40px;
+  width: 49px;
+  bottom: 220px;
+  left: 130px;
+  z-index: 3;
+}
+
+#clear_keys {
+  position: absolute;
+  top: 0px;
+  height: 40px;
+  width: 49px;
+  z-index: 4;
+}
+</style><style type="text/css">/* -------------------------- NAVIGATE TO ROOM 4 ---------------------------- */
+
+#room6_go_to_room_4{
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 137px;
+  height: 250px;
+  /* border: 6px solid purple; */
+}
+
+#room6_go_to_room_4:hover{
+  cursor: url(/static/media/down_left_arrow.a3007c9e.png) 10 30,auto;
+}
+
+ #room6_go_to_room_4_text {
+  width: 100px;
+  visibility: hidden;
+  background-color: black;
+  color: #fff;
+  border-radius: 6px;
+  padding: 5px 0;
+ }
+
+ #room6_go_to_room_4:hover #room6_go_to_room_4_text  {
+   visibility: visible;
+ }
+
+
+/* -------------------------- NAVIGATE TO ROOM 7 ---------------------------- */
+
+#room6_go_to_room_7{
+  position: absolute;
+  top: 20px;
+  right: 216px;
+  width: 150px;
+  height: 400px;
+  /* border: 6px solid purple; */
+}
+
+#room6_go_to_room_7:hover{
+  cursor: url(/static/media/left_arrow.72b1ca2a.png) 30 30,auto;
+}
+
+ #room6_go_to_room_7_text {
+  width: 100px;
+  visibility: hidden;
+  background-color: black;
+  color: #fff;
+  border-radius: 6px;
+  padding: 5px 0;
+ }
+
+ #room6_go_to_room_7:hover #room6_go_to_room_7_text  {
+   visibility: visible;
+ }
+
+/* -------------------------- NAVIGATE TO ROOM 9 ---------------------------- */
+
+#room6_go_to_room_9{
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  width: 189px;
+  height: 246px;
+  /* border: 6px solid purple; */
+}
+
+#room6_go_to_room_9:hover{
+  cursor: url(/static/media/right_down_arrow.0ae5b482.png) 30 30,auto;
+}
+
+ #room6_go_to_room_9_text {
+  width: 150px;
+  visibility: hidden;
+  background-color: black;
+  color: #fff;
+  border-radius: 6px;
+  padding: 5px 0;
+ }
+
+ #room6_go_to_room_9:hover #room6_go_to_room_9_text  {
+   visibility: visible;
+ }
+
+/* ---------------------------- PHONE MESSAGES ------------------------------ */
+
+#room6phone {
+  position: absolute;
+  width: 50px;
+  height: 80px;
+  top: 218px;
+  left: 100px;
+  /* border: 3px solid green */
+}
+
+#dads_message {
+  position: absolute;
+  top:0px;
+  background-color:white;
+  border: 3px solid green;
+  height: 100px;
+  width: 100px;
+}
+</style><style type="text/css">/* -------------------------- NAVIGATE TO ROOM 6 ---------------------------- */
+
+#room7_go_to_room_6{
+  position: absolute;
+  top: 380px;
+  left: 10px;
+  width: 180px;
+  height: 250px;
+  /* border: 6px solid purple; */
+}
+
+#room7_go_to_room_6:hover{
+  cursor: url(/static/media/left_arrow.72b1ca2a.png) 10 30,auto;
+}
+
+ #room7_go_to_room_6_text {
+  width: 100px;
+  visibility: hidden;
+  background-color: black;
+  color: #fff;
+  border-radius: 6px;
+  padding: 5px 0;
+ }
+
+ #room7_go_to_room_6:hover #room7_go_to_room_6_text  {
+   visibility: visible;
+ }
+
+/* -------------------------- NAVIGATE TO ROOM 6 ---------------------------- */
+
+#room7_go_to_room_8{
+  position: absolute;
+  bottom: 0px;
+  left: 10px;
+  width: 280px;
+  height: 250px;
+  /* border: 6px solid purple; */
+}
+
+#room7_go_to_room_8:hover{
+  cursor: url(/static/media/diagonal_left_up_arrow.0e11fa4d.png) 30 30,auto;
+}
+
+ #room7_go_to_room_8_text {
+  width: 100px;
+  visibility: hidden;
+  background-color: black;
+  color: #fff;
+  border-radius: 6px;
+  padding: 5px 0;
+ }
+
+ #room7_go_to_room_8:hover #room7_go_to_room_8_text  {
+   visibility: visible;
+ }
+
+/* -------------------------------- PHONE ----------------------------------- */
+
+#room7phone {
+  position: absolute;
+  width: 90px;
+  height: 50px;
+  top: 809px;
+  left: 302px;
+  /* border: 3px solid green; */
+}
+
+/* --------------------------------- NOTE ----------------------------------- */
+
+#fridge_note {
+  position: absolute;
+  top: 312px;
+  left: 30px;
+}
+
+#beach_club_address {
+  position: absolute;
+  /* border: 6px solid purple; */
+  height:200px;
+  width: 200px;
+  top: 200px;
+  left: 580px;
+  z-index: 3;
+    background-color:white;
+}
+</style><style type="text/css">/* -------------------------- NAVIGATE TO ROOM 6 ---------------------------- */
+
+#room8_go_to_room_7{
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 400px;
+  height: 100px;
+  border: 6px solid purple;
+}
+
+#room8_go_to_room_7:hover{
+  cursor: url(/static/media/down_left_arrow.a3007c9e.png) 10 30,auto;
+}
+
+ #room8_go_to_room_7_text {
+  width: 100px;
+  visibility: hidden;
+  background-color: black;
+  color: #fff;
+  border-radius: 6px;
+  padding: 5px 0;
+ }
+
+ #room8_go_to_room_7:hover #room8_go_to_room_7_text  {
+   visibility: visible;
+ }
+
+
+
+/* ------------------------------ WINE GLASSES ------------------------------ */
+#wine_glass_right {
+  position: absolute;
+  width: 50px;
+  height: 100px;
+  top: 510px;
+  right: 580px;
+  /* border: 3px solid green; */
+}
+
+#wine_glass_left{
+  position: absolute;
+  width: 120px;
+  height: 160px;
+  top: 480px;
+  right: 700px;
+  /* border: 3px solid green; */
+}
+
+
+#wine_glasses_message {
+  position: absolute;
+  width: 200px;
+  height: 120px;
+  top: 650px;
+  right: 680px;
+  border: 3px solid green;
+  background-color: white;
+}
+
+/* ----------------------------- TENNIS RACKET ------------------------------ */
+
+#allisons_tennis_racket {
+  position: absolute;
+  width: 260px;
+  height: 120px;
+  top: 450px;
+  left: 420px;
+  /* border: 3px solid green; */
+}
+
+#racket_message {
+  position: absolute;
+  width: 260px;
+  height: 120px;
+  top: 580px;
+  left: 420px;
+  background-color: white;
+}
+
+/* ------------------------------ CIGARETTES -------------------------------- */
+
+#cigs {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 615px;
+  left: 250px;
+  /* border: 3px solid green; */
+}
+
+#cigs_message {
+  position: absolute;
+  width: 260px;
+  height: 120px;
+  top: 715px;
+  left: 250px;
+  /* border: 3px solid green; */
+  background-color: white;
+}
+
+/* -------------------------------- PHONE ----------------------------------- */
+
+#room8phone {
+  position: absolute;
+  width: 80px;
+  height: 50px;
+  top: 580px;
+  left: 690px;
+  /* border: 3px solid green; */
+}
+
+/* -------------------------- BEACH SCENE ON TV ----------------------------- */
+
+#beach_scene {
+  position: absolute;
+  width: 125px;
+  height: 100px;
+  top: 155px;
+  left: 15px;
+    /* border: 3px solid green; */
+    z-index:5;
+}
+#beach_message {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  top: 155px;
+  left: 200px;
+  background-color: white;
+}
+</style><style type="text/css">/* ---------------------------- ROOM NAVIGATION ----------------------------- */
+
+#room9_go_to_room_10 {
+  top: 300px;
+  left: 500px;
+  width: 130px;
+  height: 400px;
+}
+
+#room9_go_to_room_6 {
+  bottom: 0px;
+  left: 0px;
+  width: 250px;
+  height: 120px;
+}
+
+#room9_go_to_room_4 {
+  bottom: 0px;
+  left: 320px;
+  width: 250px;
+  height: 120px;
+}
+
+#room9_go_to_room_1 {
+  bottom: 0px;
+  right: 0px;
+  width: 250px;
+  height: 120px;
+}
+
+/* ---------------------------- TALK TO JESSICA ----------------------------- */
+
+#beach_jess {
+  position: absolute;
+  width: 80px;
+  height: 160px;
+  top: 610px;
+  left: 630px;
+  /* border: 3px solid green; */
+}
+
+#beach_jess_message {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  top: 410px;
+  left: 650px;
+  /* border: 3px solid green; */
+  background-color: white;
+}
+</style><style type="text/css">/* ---------------------------- ROOM NAVIGATION ----------------------------- */
+
+#room10_go_to_room_11 {
+  top: 400px;
+  right: 0px;
+  width: 150px;
+  height: 250px;
+}
+
+#room10_go_to_room_9 {
+  bottom: 0px;
+  left: 0px;
+  width: 250px;
+  height: 150px;
+}
+
+/* -------------------------------- HEATHER --------------------------------- */
+
+#heather {
+  position: absolute;
+  width: 120px;
+  height: 100px;
+  top: 650px;
+  left: 520px;
+  /* border: 3px solid green; */
+}
+
+.heather_message {
+  position: absolute;
+  width: 200px;
+  height: 250px;
+  top: 400px;
+  left: 520px;
+  background-color: white;
+}
+</style><style type="text/css">/* ---------------------------- ROOM NAVIGATION ----------------------------- */
+
+#room11_go_to_room_10 {
+  bottom: 0px;
+  left: 0px;
+  width: 300px;
+  height: 150px;
+}
+
+/* -------------------------------- PHONE ----------------------------------- */
+
+#room11phone {
+  position: absolute;
+  width: 130px;
+  height: 90px;
+  top: 660px;
+  left: 710px;
+  /* border: 3px solid green; */
+}
+
+/* ------------------------------ PARROTS ----------------------------------- */
+
+#parrot_left {
+  position: absolute;
+  width: 60px;
+  height: 220px;
+  top: 120px;
+  left: 160px;
+  /* border: 3px solid green; */
+}
+
+#parrot_right {
+  position: absolute;
+  width: 60px;
+  height: 80px;
+  top: 160px;
+  left: 225px;
+  /* border: 3px solid green; */
+}
+
+.parrot_message {
+  position: absolute;
+  width: 200px;
+  height: 100px;
+  top: 350px;
+  left: 160px;
+  /* border: 3px solid green; */
+  background-color:white;
+}
+
+/* ------------------------------ TAPE ----------------------------------- */
+
+#tape {
+  position: absolute;
+  z-index: 3;
+}
+
+#clear_tape{
+  position: absolute;
+  top: 0px;
+  height:65.752px;
+  Width: 65.996px;
+  z-index: 4;
+}
+</style><script type="text/javascript" charset="utf-8" src="./React App_files/0.93eb383110ae443a4ff4.hot-update.js"></script><script type="text/javascript" charset="utf-8" src="./React App_files/0.145c6131f2d3a0f20865.hot-update.js"></script><script type="text/javascript" charset="utf-8" src="./React App_files/0.fe8f6d62dd2af973b907.hot-update.js"></script><script type="text/javascript" charset="utf-8" src="./React App_files/0.a1ec1a6bcd96543bbf93.hot-update.js"></script><script type="text/javascript" charset="utf-8" src="./React App_files/0.cdc40e0f570b383097b0.hot-update.js"></script></head>
+  <body>
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+    <div id="root"><div id="app"><div class="main_container"><div class="main_container"><img src="./React App_files/room8.a0b5a385.jpg" alt="Allison&#39;s Bedroom"><div id="wine_glass_right"></div><div id="wine_glass_left"></div><div id="room8phone"></div> <div id="phone_container"><div id="close_phone">HANG UP PHONE</div><img src="data:image/png;base64,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" alt="A phone"><div class="phone_button" id="call_police"> CALL POLICE </div><div class="phone_button" id="call_allison"></div></div><div id="cigs"></div><div id="allisons_tennis_racket"></div><div id="room8_go_to_room_7"><div id="room8_go_to_room_7_text">GO TO ALLISON'S KITCHEN</div></div></div><div id="purse_container"><img src="./React App_files/purse.476cda8b.png" width="150" alt="Your purse to store items"></div><div id="tv_container"></div></div></div></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  <script type="text/javascript" src="./React App_files/bundle.js"></script>
+
+<span style="border-radius: 3px; text-indent: 20px; width: auto; padding: 0px 4px 0px 0px; text-align: center; font-style: normal; font-variant: normal; font-weight: bold; font-stretch: normal; font-size: 11px; line-height: 20px; font-family: &quot;Helvetica Neue&quot;, Helvetica, sans-serif; color: rgb(255, 255, 255); background: url(&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMzBweCIgd2lkdGg9IjMwcHgiIHZpZXdCb3g9Ii0xIC0xIDMxIDMxIj48Zz48cGF0aCBkPSJNMjkuNDQ5LDE0LjY2MiBDMjkuNDQ5LDIyLjcyMiAyMi44NjgsMjkuMjU2IDE0Ljc1LDI5LjI1NiBDNi42MzIsMjkuMjU2IDAuMDUxLDIyLjcyMiAwLjA1MSwxNC42NjIgQzAuMDUxLDYuNjAxIDYuNjMyLDAuMDY3IDE0Ljc1LDAuMDY3IEMyMi44NjgsMC4wNjcgMjkuNDQ5LDYuNjAxIDI5LjQ0OSwxNC42NjIiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIxIj48L3BhdGg+PHBhdGggZD0iTTE0LjczMywxLjY4NiBDNy41MTYsMS42ODYgMS42NjUsNy40OTUgMS42NjUsMTQuNjYyIEMxLjY2NSwyMC4xNTkgNS4xMDksMjQuODU0IDkuOTcsMjYuNzQ0IEM5Ljg1NiwyNS43MTggOS43NTMsMjQuMTQzIDEwLjAxNiwyMy4wMjIgQzEwLjI1MywyMi4wMSAxMS41NDgsMTYuNTcyIDExLjU0OCwxNi41NzIgQzExLjU0OCwxNi41NzIgMTEuMTU3LDE1Ljc5NSAxMS4xNTcsMTQuNjQ2IEMxMS4xNTcsMTIuODQyIDEyLjIxMSwxMS40OTUgMTMuNTIyLDExLjQ5NSBDMTQuNjM3LDExLjQ5NSAxNS4xNzUsMTIuMzI2IDE1LjE3NSwxMy4zMjMgQzE1LjE3NSwxNC40MzYgMTQuNDYyLDE2LjEgMTQuMDkzLDE3LjY0MyBDMTMuNzg1LDE4LjkzNSAxNC43NDUsMTkuOTg4IDE2LjAyOCwxOS45ODggQzE4LjM1MSwxOS45ODggMjAuMTM2LDE3LjU1NiAyMC4xMzYsMTQuMDQ2IEMyMC4xMzYsMTAuOTM5IDE3Ljg4OCw4Ljc2NyAxNC42NzgsOC43NjcgQzEwLjk1OSw4Ljc2NyA4Ljc3NywxMS41MzYgOC43NzcsMTQuMzk4IEM4Ljc3NywxNS41MTMgOS4yMSwxNi43MDkgOS43NDksMTcuMzU5IEM5Ljg1NiwxNy40ODggOS44NzIsMTcuNiA5Ljg0LDE3LjczMSBDOS43NDEsMTguMTQxIDkuNTIsMTkuMDIzIDkuNDc3LDE5LjIwMyBDOS40MiwxOS40NCA5LjI4OCwxOS40OTEgOS4wNCwxOS4zNzYgQzcuNDA4LDE4LjYyMiA2LjM4NywxNi4yNTIgNi4zODcsMTQuMzQ5IEM2LjM4NywxMC4yNTYgOS4zODMsNi40OTcgMTUuMDIyLDYuNDk3IEMxOS41NTUsNi40OTcgMjMuMDc4LDkuNzA1IDIzLjA3OCwxMy45OTEgQzIzLjA3OCwxOC40NjMgMjAuMjM5LDIyLjA2MiAxNi4yOTcsMjIuMDYyIEMxNC45NzMsMjIuMDYyIDEzLjcyOCwyMS4zNzkgMTMuMzAyLDIwLjU3MiBDMTMuMzAyLDIwLjU3MiAxMi42NDcsMjMuMDUgMTIuNDg4LDIzLjY1NyBDMTIuMTkzLDI0Ljc4NCAxMS4zOTYsMjYuMTk2IDEwLjg2MywyNy4wNTggQzEyLjA4NiwyNy40MzQgMTMuMzg2LDI3LjYzNyAxNC43MzMsMjcuNjM3IEMyMS45NSwyNy42MzcgMjcuODAxLDIxLjgyOCAyNy44MDEsMTQuNjYyIEMyNy44MDEsNy40OTUgMjEuOTUsMS42ODYgMTQuNzMzLDEuNjg2IiBmaWxsPSIjYmQwODFjIj48L3BhdGg+PC9nPjwvc3ZnPg==&quot;) 3px 50% / 14px 14px no-repeat rgb(189, 8, 28); position: absolute; opacity: 1; z-index: 8675309; display: none; cursor: pointer; border: none; -webkit-font-smoothing: antialiased; top: 20px; left: 310px;">Save</span><span style="width: 24px; height: 24px; background: url(&quot;data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pjxzdmcgd2lkdGg9IjI0cHgiIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDI0IDI0IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxkZWZzPjxtYXNrIGlkPSJtIj48cmVjdCBmaWxsPSIjZmZmIiB4PSIwIiB5PSIwIiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHJ4PSI2IiByeT0iNiIvPjxyZWN0IGZpbGw9IiMwMDAiIHg9IjUiIHk9IjUiIHdpZHRoPSIxNCIgaGVpZ2h0PSIxNCIgcng9IjEiIHJ5PSIxIi8+PHJlY3QgZmlsbD0iIzAwMCIgeD0iMTAiIHk9IjAiIHdpZHRoPSI0IiBoZWlnaHQ9IjI0Ii8+PHJlY3QgZmlsbD0iIzAwMCIgeD0iMCIgeT0iMTAiIHdpZHRoPSIyNCIgaGVpZ2h0PSI0Ii8+PC9tYXNrPjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIGZpbGw9IiNmZmYiIG1hc2s9InVybCgjbSkiLz48L3N2Zz4=&quot;) 50% 50% / 14px 14px no-repeat rgba(0, 0, 0, 0.4); position: absolute; opacity: 1; z-index: 8675309; display: none; cursor: pointer; border: none; border-radius: 12px; top: 18px; left: 1168px;"></span></body></html>
